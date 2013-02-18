@@ -89,6 +89,22 @@
 		8851119416D1DE4E00C74D07 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8851118F16D1DE4E00C74D07 /* SplashScreen.xib */; };
 		8851119516D1DE4E00C74D07 /* TestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8851119116D1DE4E00C74D07 /* TestViewController.mm */; };
 		8851119616D1DE4E00C74D07 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8851119216D1DE4E00C74D07 /* TestViewController.xib */; };
+		885111BA16D1E32F00C74D07 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 885111B216D1E32F00C74D07 /* FacebookManager.m */; };
+		885111BB16D1E32F00C74D07 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111B316D1E32F00C74D07 /* FacebookSDK.framework */; };
+		885111BC16D1E32F00C74D07 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 885111B416D1E32F00C74D07 /* FacebookSDKResources.bundle */; };
+		885111BD16D1E32F00C74D07 /* FacebookVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885111B616D1E32F00C74D07 /* FacebookVeiwController.m */; };
+		885111BE16D1E32F00C74D07 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 885111B716D1E32F00C74D07 /* FBUserSettingsViewResources.bundle */; };
+		885111BF16D1E32F00C74D07 /* InfoPlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 885111B816D1E32F00C74D07 /* InfoPlist.png */; };
+		885111C016D1E32F00C74D07 /* ReadMe.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 885111B916D1E32F00C74D07 /* ReadMe.rtf */; };
+		885111C216D1E34400C74D07 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111C116D1E34400C74D07 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		885111C416D1E34800C74D07 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111C316D1E34800C74D07 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		885111CB16D1E48500C74D07 /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 885111CA16D1E48500C74D07 /* CustomAlert.m */; };
+		885111D716D1E4DF00C74D07 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111CE16D1E4DE00C74D07 /* libFlurry.a */; };
+		885111D816D1E4DF00C74D07 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111D516D1E4DF00C74D07 /* libGoogleAnalytics.a */; };
+		885111DB16D1E53500C74D07 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111DA16D1E53500C74D07 /* libsqlite3.0.dylib */; };
+		885111DD16D1E56400C74D07 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111DC16D1E56400C74D07 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		885111E116D1E66500C74D07 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111E016D1E66500C74D07 /* CoreData.framework */; };
+		885111E716D1E77800C74D07 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111E616D1E77800C74D07 /* Twitter.framework */; };
 		8A2EF43E138549090070AA2F /* iPhone_Profiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EF43C138549090070AA2F /* iPhone_Profiler.cpp */; };
 		8A2EF43F138549090070AA2F /* iPhone_Profiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EF43C138549090070AA2F /* iPhone_Profiler.cpp */; };
 		8A2EF57A13856A230070AA2F /* iPhone_GlesSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EF57813856A230070AA2F /* iPhone_GlesSupport.cpp */; };
@@ -197,6 +213,33 @@
 		8851119016D1DE4E00C74D07 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		8851119116D1DE4E00C74D07 /* TestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestViewController.mm; sourceTree = "<group>"; };
 		8851119216D1DE4E00C74D07 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		885111B116D1E32F00C74D07 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
+		885111B216D1E32F00C74D07 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
+		885111B316D1E32F00C74D07 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		885111B416D1E32F00C74D07 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		885111B516D1E32F00C74D07 /* FacebookVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookVeiwController.h; sourceTree = "<group>"; };
+		885111B616D1E32F00C74D07 /* FacebookVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookVeiwController.m; sourceTree = "<group>"; };
+		885111B716D1E32F00C74D07 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		885111B816D1E32F00C74D07 /* InfoPlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoPlist.png; sourceTree = "<group>"; };
+		885111B916D1E32F00C74D07 /* ReadMe.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = ReadMe.rtf; sourceTree = "<group>"; };
+		885111C116D1E34400C74D07 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		885111C316D1E34800C74D07 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		885111C916D1E48500C74D07 /* CustomAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
+		885111CA16D1E48500C74D07 /* CustomAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlert.m; sourceTree = "<group>"; };
+		885111CD16D1E4DE00C74D07 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		885111CE16D1E4DE00C74D07 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		885111D016D1E4DF00C74D07 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		885111D116D1E4DF00C74D07 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		885111D216D1E4DF00C74D07 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		885111D316D1E4DF00C74D07 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		885111D416D1E4DF00C74D07 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		885111D516D1E4DF00C74D07 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		885111DA16D1E53500C74D07 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		885111DC16D1E56400C74D07 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		885111DE16D1E57400C74D07 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		885111E016D1E66500C74D07 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		885111E616D1E77800C74D07 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		885111E816D1E95800C74D07 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		8A2EF43C138549090070AA2F /* iPhone_Profiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iPhone_Profiler.cpp; sourceTree = "<group>"; };
 		8A2EF43D138549090070AA2F /* iPhone_Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Profiler.h; sourceTree = "<group>"; };
 		8A2EF57813856A230070AA2F /* iPhone_GlesSupport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iPhone_GlesSupport.cpp; sourceTree = "<group>"; };
@@ -234,6 +277,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885111E716D1E77800C74D07 /* Twitter.framework in Frameworks */,
+				885111E116D1E66500C74D07 /* CoreData.framework in Frameworks */,
+				885111DD16D1E56400C74D07 /* AdSupport.framework in Frameworks */,
+				885111DB16D1E53500C74D07 /* libsqlite3.0.dylib in Frameworks */,
+				885111C416D1E34800C74D07 /* Social.framework in Frameworks */,
+				885111C216D1E34400C74D07 /* Accounts.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				830B5C110E5ED4C100C7819F /* UIKit.framework in Frameworks */,
 				83B256E20E62FEA000468741 /* OpenGLES.framework in Frameworks */,
@@ -253,6 +302,9 @@
 				56B7959B1442E0F20026B3DD /* CoreGraphics.framework in Frameworks */,
 				56B7960F1442E1770026B3DD /* CoreMotion.framework in Frameworks */,
 				56B7961A1442E1B80026B3DD /* GameKit.framework in Frameworks */,
+				885111BB16D1E32F00C74D07 /* FacebookSDK.framework in Frameworks */,
+				885111D716D1E4DF00C74D07 /* libFlurry.a in Frameworks */,
+				885111D816D1E4DF00C74D07 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +349,13 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				885111E616D1E77800C74D07 /* Twitter.framework */,
+				885111E016D1E66500C74D07 /* CoreData.framework */,
+				885111DE16D1E57400C74D07 /* Security.framework */,
+				885111DC16D1E56400C74D07 /* AdSupport.framework */,
+				885111DA16D1E53500C74D07 /* libsqlite3.0.dylib */,
+				885111C316D1E34800C74D07 /* Social.framework */,
+				885111C116D1E34400C74D07 /* Accounts.framework */,
 				56BCBA380FCF049A0030C3B2 /* SystemConfiguration.framework */,
 				5692F3DC0FA9D8E500EBA2F1 /* CoreLocation.framework */,
 				5682F4B10F3B34FF007A219C /* MediaPlayer.framework */,
@@ -337,6 +396,11 @@
 		885110CF16CE3B4F00C74D07 /* NativeCode */ = {
 			isa = PBXGroup;
 			children = (
+				885111E816D1E95800C74D07 /* Constants.h */,
+				885111CC16D1E4DE00C74D07 /* Flurry */,
+				885111CF16D1E4DE00C74D07 /* GoogleAnalytics */,
+				885111C816D1E48500C74D07 /* UISubClass */,
+				885111B016D1E32F00C74D07 /* Facebook */,
 				8851113216CE3B7A00C74D07 /* Resources */,
 				885110DA16CE3B4F00C74D07 /* Classes */,
 				8851110016CE3B4F00C74D07 /* UIBinding.h */,
@@ -394,6 +458,53 @@
 				8851116F16D1DE4100C74D07 /* wood.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		885111B016D1E32F00C74D07 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				885111B116D1E32F00C74D07 /* FacebookManager.h */,
+				885111B216D1E32F00C74D07 /* FacebookManager.m */,
+				885111B316D1E32F00C74D07 /* FacebookSDK.framework */,
+				885111B416D1E32F00C74D07 /* FacebookSDKResources.bundle */,
+				885111B516D1E32F00C74D07 /* FacebookVeiwController.h */,
+				885111B616D1E32F00C74D07 /* FacebookVeiwController.m */,
+				885111B716D1E32F00C74D07 /* FBUserSettingsViewResources.bundle */,
+				885111B816D1E32F00C74D07 /* InfoPlist.png */,
+				885111B916D1E32F00C74D07 /* ReadMe.rtf */,
+			);
+			path = Facebook;
+			sourceTree = "<group>";
+		};
+		885111C816D1E48500C74D07 /* UISubClass */ = {
+			isa = PBXGroup;
+			children = (
+				885111C916D1E48500C74D07 /* CustomAlert.h */,
+				885111CA16D1E48500C74D07 /* CustomAlert.m */,
+			);
+			path = UISubClass;
+			sourceTree = "<group>";
+		};
+		885111CC16D1E4DE00C74D07 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				885111CD16D1E4DE00C74D07 /* Flurry.h */,
+				885111CE16D1E4DE00C74D07 /* libFlurry.a */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
+		885111CF16D1E4DE00C74D07 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				885111D016D1E4DF00C74D07 /* GAI.h */,
+				885111D116D1E4DF00C74D07 /* GAITrackedViewController.h */,
+				885111D216D1E4DF00C74D07 /* GAITracker.h */,
+				885111D316D1E4DF00C74D07 /* GAITransaction.h */,
+				885111D416D1E4DF00C74D07 /* GAITransactionItem.h */,
+				885111D516D1E4DF00C74D07 /* libGoogleAnalytics.a */,
+			);
+			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		D82DCFB50E8000A5005D6AD8 /* Classes */ = {
@@ -544,6 +655,10 @@
 				8851118C16D1DE4100C74D07 /* wood.png in Resources */,
 				8851119416D1DE4E00C74D07 /* SplashScreen.xib in Resources */,
 				8851119616D1DE4E00C74D07 /* TestViewController.xib in Resources */,
+				885111BC16D1E32F00C74D07 /* FacebookSDKResources.bundle in Resources */,
+				885111BE16D1E32F00C74D07 /* FBUserSettingsViewResources.bundle in Resources */,
+				885111BF16D1E32F00C74D07 /* InfoPlist.png in Resources */,
+				885111C016D1E32F00C74D07 /* ReadMe.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +731,9 @@
 				8851112F16CE3B4F00C74D07 /* UnityNativeManager.mm in Sources */,
 				8851119316D1DE4E00C74D07 /* SplashScreen.m in Sources */,
 				8851119516D1DE4E00C74D07 /* TestViewController.mm in Sources */,
+				885111BA16D1E32F00C74D07 /* FacebookManager.m in Sources */,
+				885111BD16D1E32F00C74D07 /* FacebookVeiwController.m in Sources */,
+				885111CB16D1E48500C74D07 /* CustomAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +778,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Libraries\"",
+					"\"$(SRCROOT)/NativeCode/Flurry\"",
+					"\"$(SRCROOT)/NativeCode/GoogleAnalytics\"",
 				);
 				OTHER_CFLAGS = "-mno-thumb";
 				OTHER_LDFLAGS = (
@@ -698,6 +818,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Libraries\"",
+					"\"$(SRCROOT)/NativeCode/Flurry\"",
+					"\"$(SRCROOT)/NativeCode/GoogleAnalytics\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-mno-thumb";

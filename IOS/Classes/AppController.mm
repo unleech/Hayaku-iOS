@@ -15,6 +15,10 @@
 
 #include <mach/mach_time.h>
 
+#import "GAI.h"
+#import "Flurry.h"
+#import "Constants.h"
+
 // USE_DISPLAY_LINK_IF_AVAILABLE
 //
 // Use of the CADisplayLink class is the preferred method for controlling your
@@ -1091,6 +1095,20 @@ void NotifyAutoOrientationChange()
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:GAI_KEY];
+    [GAI sharedInstance].defaultTracker = tracker;
+    
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    [Flurry startSession:FLURRY_KEY]; //LC
+
+    
     printf_console("-> applicationDidFinishLaunching()\n");
     // get local notification
     if (&UIApplicationLaunchOptionsLocalNotificationKey != nil)
@@ -1118,6 +1136,10 @@ void NotifyAutoOrientationChange()
     [self startUnity:application];
 
     return NO;
+}
+
+void uncaughtExceptionHandler(NSException *exception) {
+    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
 
 // For iOS 4

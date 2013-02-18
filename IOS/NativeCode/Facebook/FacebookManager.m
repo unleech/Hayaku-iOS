@@ -7,7 +7,9 @@
 //
 
 #import "FacebookManager.h"
-#import "AppDelegate.h"
+#import "CustomAlert.h"
+#import "Flurry.h"
+#import "GAI.h"
 
 @implementation FacebookManager
 
@@ -135,8 +137,9 @@ static FacebookManager *_facebookManager = nil;
     }
     _navController = [[UINavigationController alloc]initWithRootViewController:_controller];
     _navController.navigationBar.barStyle = UIBarStyleBlack;
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    [appDelegate.rootController.view insertSubview:_navController.view atIndex:100];
+//    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//    [appDelegate.rootController.view insertSubview:_navController.view atIndex:100];
+    
 }
 
 - (void)showSpinner{

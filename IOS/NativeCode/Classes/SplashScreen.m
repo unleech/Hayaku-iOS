@@ -10,7 +10,15 @@
 
 #import "SplashScreen.h"
 
-//#import <Social/Social.h>
+#import <Social/Social.h>
+#import <Twitter/Twitter.h>
+
+#import "CustomAlert.h"
+
+#import "Flurry.h"
+#import "GAI.h"
+
+
 
 @interface SplashScreen ()
 @property (retain, nonatomic) IBOutlet UIImageView *Logo;
@@ -185,17 +193,18 @@
 }
 
 - (IBAction)onCastleButton:(UIButton *)sender {
-    
-    [[UnityNativeManager sharedManager] pauseUnity:NO];
-	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_4" UTF8String] );
+
+    [self publishFB];
+//    [[UnityNativeManager sharedManager] pauseUnity:NO];
+//	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_4" UTF8String] );
 }
 
-/*
+
 #pragma mark - SOCIAL FB
 - (void)publishFB
 {
-//    [Flurry logEvent:@"Faceook_buttonP"];
-//    [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Faceook" withValue:nil];
+    [Flurry logEvent:@"Faceook_buttonP"];
+    [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Faceook" withValue:nil];
     
     if([SLComposeViewController instanceMethodForSelector:@selector(isAvailableForServiceType)] != nil){
         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
@@ -225,8 +234,8 @@
         else
         {
             NSLog(@"FB not available!");
-//            [Flurry logEvent:@"Faceook_N/A"];
-//            [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Error" withAction:@"Press" withLabel:@"Faceook_N/A" withValue:nil];
+            [Flurry logEvent:@"Faceook_N/A"];
+            [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Error" withAction:@"Press" withLabel:@"Faceook_N/A" withValue:nil];
         }
     }
     else{
@@ -243,14 +252,14 @@
         if (result == SLComposeViewControllerResultCancelled)
         {
             NSLog(@"Cancelled");
-//            [Flurry logEvent:@"Faceook_Cancelled"];
-//            [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Faceook_Cancelled" withValue:nil];
+            [Flurry logEvent:@"Faceook_Cancelled"];
+            [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Faceook_Cancelled" withValue:nil];
         }
         else
         {
             NSLog(@"Done");
-//            [Flurry logEvent:@"Faceook_Done"];
-//            [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Faceook_Done" withValue:nil];
+            [Flurry logEvent:@"Faceook_Done"];
+            [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Faceook_Done" withValue:nil];
         }
         [controller dismissViewControllerAnimated:YES completion:Nil];
     };
@@ -267,6 +276,35 @@
     [controller addImage:fbIconAttach.image];
     [self presentViewController:controller animated:YES completion:Nil];
 }
-*/
 
+
+#pragma mark - Twitter
+- (void)sendTweet{
+    [Flurry logEvent:@"Twitter_buttonP"];
+    [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Twitter" withValue:nil];
+    if ([TWTweetComposeViewController canSendTweet])
+    {
+        TWTweetComposeViewController *tweetSheet =
+        [[TWTweetComposeViewController alloc] init];
+        [tweetSheet setInitialText:@"I love this app! http://londoncalling.com"];
+        
+        //[tweetSheet addImage:@""];
+        //[tweetSheet addURL:@""];
+        [self presentModalViewController:tweetSheet animated:YES];
+        [Flurry logEvent:@"Twitter_tweet"];
+        [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Twitter_tweet" withValue:nil];
+    }
+    else
+    {
+        [Flurry logEvent:@"Twitter_Failed"];
+        [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Twitter_Sorry" withValue:nil];
+        CustomAlert *alertView = [[CustomAlert alloc]
+                                  initWithTitle:@"Sorry" message:@"Make sure your device has an internet connection and your Twitter account has been set up."
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:@"Go to Settings!",nil];
+        [alertView show];
+    }
+    
+}
 @end

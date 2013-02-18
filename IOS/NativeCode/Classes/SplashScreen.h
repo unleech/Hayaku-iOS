@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "FacebookManager.h"
+#import "FacebookManager.h"
 
 @interface SplashScreen : UIViewController
 {
-//    FacebookManager* _fbManager;
+    FacebookManager* _fbManager;
 }
 
 @end

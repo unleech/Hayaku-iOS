@@ -30,7 +30,7 @@ void RegisterMonoModules()
     gEnableGyroscope = false;
 #if !(TARGET_IPHONE_SIMULATOR)
 	mono_aot_only = true;
-	mono_ficall_flag = false;
+	mono_ficall_flag = true;
 	mono_aot_register_module(mono_aot_module_Assembly_CSharp_firstpass_info);
 	mono_aot_register_module(mono_aot_module_Assembly_CSharp_info);
 	mono_aot_register_module(mono_aot_module_Assembly_UnityScript_firstpass_info);

@@ -10,3 +10,6 @@
     #define GAI_KEY             @"UA-38221089-4" //test
 
 #endif
+
+#pragma mark - Global Variables
+BOOL lockOrientation;

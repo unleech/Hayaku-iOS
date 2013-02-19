@@ -207,9 +207,9 @@
 
 - (IBAction)onCastleButton:(UIButton *)sender {
 
-    [self publishFB];
-//    [[UnityNativeManager sharedManager] pauseUnity:NO];
-//	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_4" UTF8String] );
+//    [self publishFB];
+    [[UnityNativeManager sharedManager] pauseUnity:NO];
+	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_4" UTF8String] );
 }
 
 

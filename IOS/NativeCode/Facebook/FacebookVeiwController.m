@@ -7,6 +7,7 @@
 //
 
 #import "FacebookVeiwController.h"
+#import "Constants.h"
 
 @implementation FacebookVeiwController
 
@@ -15,7 +16,8 @@
     self = [super init];
     if (self) {
         // Custom initialization
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+        lockOrientation = YES;
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
         self.view.frame = CGRectMake (0,0,320,480);
         self.view.backgroundColor = [UIColor clearColor];
     }
@@ -44,11 +46,12 @@
 }
 
 - (void)cancel{
+    lockOrientation = NO;
     [self.delegate _didCancel];
 }
 
 - (void)done{
-    
+    lockOrientation = NO;
     _parameters = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"http://londoncalling.com",@"link",
                    @"http://a0.twimg.com/profile_images/1930165194/Pinterest-avatar_normal.jpg", @"picture",
                    @"London Calling", @"name",
@@ -62,12 +65,4 @@
     NSLog(@"%@ deallocated!",[self class]);
 }
 
--(BOOL)shouldAutorotate
-{
-    return UIInterfaceOrientationLandscapeRight;
-}
--(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return UIInterfaceOrientationLandscapeRight;
-}
 @end

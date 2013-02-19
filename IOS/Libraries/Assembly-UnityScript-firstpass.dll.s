@@ -777,28 +777,6 @@ bl p_2
 	.byte 148,6,0,2
 
 Lme_14:
-	.align 2
-Lm_16:
-wrapper_managed_to_native_System_Array_GetGenericValueImpl_int_object_:
-
-	.byte 13,192,160,225,240,95,45,233,120,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229,8,32,139,229
-bl p_62
-
-	.byte 16,16,141,226,4,0,129,229,0,32,144,229,0,32,129,229,0,16,128,229,16,208,129,229,15,32,160,225,20,32,129,229
-	.byte 0,0,155,229,0,0,80,227,16,0,0,10,0,0,155,229,4,16,155,229,8,32,155,229
-bl p_63
-
-	.byte 0,0,159,229,0,0,0,234
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 48
-	.byte 0,0,159,231,0,0,144,229,0,0,80,227,10,0,0,26,16,32,139,226,0,192,146,229,4,224,146,229,0,192,142,229
-	.byte 104,208,130,226,240,175,157,232,148,0,160,227,6,12,128,226,2,4,128,226
-bl p_64
-bl p_65
-bl p_66
-
-	.byte 242,255,255,234
-
-Lme_16:
 .text
 	.align 3
 methods_end:
@@ -808,7 +786,7 @@ method_offsets:
 
 	.long Lm_0 - methods,Lm_1 - methods,Lm_2 - methods,Lm_3 - methods,Lm_4 - methods,Lm_5 - methods,Lm_6 - methods,Lm_7 - methods
 	.long Lm_8 - methods,Lm_9 - methods,Lm_a - methods,Lm_b - methods,Lm_c - methods,Lm_d - methods,Lm_e - methods,Lm_f - methods
-	.long Lm_10 - methods,Lm_11 - methods,Lm_12 - methods,Lm_13 - methods,Lm_14 - methods,-1,Lm_16 - methods
+	.long Lm_10 - methods,Lm_11 - methods,Lm_12 - methods,Lm_13 - methods,Lm_14 - methods,-1,-1
 
 .text
 	.align 3
@@ -877,29 +855,25 @@ Lm_13_p:
 Lm_14_p:
 
 	.byte 0,1,14
-Lm_16_p:
-
-	.byte 0,1,15
 .text
 	.align 3
 method_info_offsets:
 
 	.long Lm_0_p - mi,Lm_1_p - mi,Lm_2_p - mi,Lm_3_p - mi,Lm_4_p - mi,Lm_5_p - mi,Lm_6_p - mi,Lm_7_p - mi
 	.long Lm_8_p - mi,Lm_9_p - mi,Lm_a_p - mi,Lm_b_p - mi,Lm_c_p - mi,Lm_d_p - mi,Lm_e_p - mi,Lm_f_p - mi
-	.long Lm_10_p - mi,Lm_11_p - mi,Lm_12_p - mi,Lm_13_p - mi,Lm_14_p - mi,0,Lm_16_p - mi
+	.long Lm_10_p - mi,Lm_11_p - mi,Lm_12_p - mi,Lm_13_p - mi,Lm_14_p - mi,0,0
 
 .text
 	.align 3
 extra_method_info:
 
-	.byte 0,1,6,83,121,115,116,101,109,46,65,114,114,97,121,58,71,101,116,71,101,110,101,114,105,99,86,97,108,117,101,73
-	.byte 109,112,108,32,40,105,110,116,44,111,98,106,101,99,116,38,41,0
+	.byte 0
 
 .text
 	.align 3
 extra_method_table:
 
-	.long 11,0,0,0,1,22,0,0
+	.long 11,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
@@ -908,14 +882,14 @@ extra_method_table:
 	.align 3
 extra_method_info_offsets:
 
-	.long 1,22,1
+	.long 1,22,0
 .text
 	.align 3
 method_order:
 
 	.long 0,16777215,0,1,2,3,4,5
 	.long 6,7,8,9,10,11,12,13
-	.long 14,15,16,17,18,19,20,22
+	.long 14,15,16,17,18,19,20
 
 .text
 method_order_end:
@@ -932,30 +906,26 @@ class_name_table:
 got_info:
 
 	.byte 12,0,39,17,0,1,17,0,17,17,0,33,14,129,157,1,17,0,69,11,129,60,1,17,0,89,11,129,67,1,17,0
-	.byte 113,14,31,2,14,6,0,14,7,0,8,3,80,132,100,131,20,33,3,193,0,18,194,7,32,109,111,110,111,95,97,114
-	.byte 99,104,95,116,104,114,111,119,95,99,111,114,108,105,98,95,101,120,99,101,112,116,105,111,110,0,3,193,0,19,91,3
-	.byte 193,0,19,254,3,193,0,19,92,3,193,0,19,87,3,193,0,14,19,3,193,0,19,13,3,193,0,11,206,3,193,0
-	.byte 11,75,3,193,0,11,232,3,193,0,19,248,3,193,0,11,128,3,193,0,20,13,3,193,0,19,249,3,193,0,12,174
-	.byte 3,193,0,20,80,3,193,0,12,178,3,193,0,12,177,3,193,0,11,120,3,193,0,11,131,3,193,0,11,129,3,193
-	.byte 0,20,41,3,193,0,11,188,3,193,0,20,12,3,193,0,11,192,3,194,0,2,107,3,193,0,19,28,3,193,0,19
-	.byte 31,3,193,0,18,136,3,193,0,13,198,3,193,0,15,207,3,193,0,14,16,7,23,109,111,110,111,95,111,98,106,101
-	.byte 99,116,95,110,101,119,95,112,116,114,102,114,101,101,0,3,193,0,19,177,3,193,0,19,235,3,193,0,14,17,3,193
-	.byte 0,14,59,3,193,0,20,46,3,193,0,20,55,3,193,0,14,134,3,193,0,11,118,3,193,0,14,162,3,193,0,14
-	.byte 164,3,193,0,14,168,3,193,0,14,126,7,27,109,111,110,111,95,111,98,106,101,99,116,95,110,101,119,95,112,116,114
-	.byte 102,114,101,101,95,98,111,120,0,3,193,0,18,205,7,20,109,111,110,111,95,111,98,106,101,99,116,95,110,101,119,95
-	.byte 102,97,115,116,0,3,19,3,193,0,19,93,3,193,0,18,138,3,193,0,14,125,3,193,0,14,6,3,193,0,14,8
-	.byte 3,193,0,14,7,3,193,0,14,9,3,194,0,2,111,3,193,0,12,128,3,255,255,0,0,0,0,202,0,0,60,3
-	.byte 193,0,19,27,7,17,109,111,110,111,95,103,101,116,95,108,109,102,95,97,100,100,114,0,31,255,254,0,0,0,41,2
-	.byte 2,198,0,4,3,0,1,1,2,2,7,30,109,111,110,111,95,99,114,101,97,116,101,95,99,111,114,108,105,98,95,101
-	.byte 120,99,101,112,116,105,111,110,95,48,0,7,25,109,111,110,111,95,97,114,99,104,95,116,104,114,111,119,95,101,120,99
-	.byte 101,112,116,105,111,110,0,7,35,109,111,110,111,95,116,104,114,101,97,100,95,105,110,116,101,114,114,117,112,116,105,111
-	.byte 110,95,99,104,101,99,107,112,111,105,110,116,0
+	.byte 113,14,31,2,14,6,0,14,7,0,8,3,80,132,100,131,20,3,193,0,18,194,7,32,109,111,110,111,95,97,114,99
+	.byte 104,95,116,104,114,111,119,95,99,111,114,108,105,98,95,101,120,99,101,112,116,105,111,110,0,3,193,0,19,91,3,193
+	.byte 0,19,254,3,193,0,19,92,3,193,0,19,87,3,193,0,14,19,3,193,0,19,13,3,193,0,11,206,3,193,0,11
+	.byte 75,3,193,0,11,232,3,193,0,19,248,3,193,0,11,128,3,193,0,20,13,3,193,0,19,249,3,193,0,12,174,3
+	.byte 193,0,20,80,3,193,0,12,178,3,193,0,12,177,3,193,0,11,120,3,193,0,11,131,3,193,0,11,129,3,193,0
+	.byte 20,41,3,193,0,11,188,3,193,0,20,12,3,193,0,11,192,3,194,0,2,107,3,193,0,19,28,3,193,0,19,31
+	.byte 3,193,0,18,136,3,193,0,13,198,3,193,0,15,207,3,193,0,14,16,7,23,109,111,110,111,95,111,98,106,101,99
+	.byte 116,95,110,101,119,95,112,116,114,102,114,101,101,0,3,193,0,19,177,3,193,0,19,235,3,193,0,14,17,3,193,0
+	.byte 14,59,3,193,0,20,46,3,193,0,20,55,3,193,0,14,134,3,193,0,11,118,3,193,0,14,162,3,193,0,14,164
+	.byte 3,193,0,14,168,3,193,0,14,126,7,27,109,111,110,111,95,111,98,106,101,99,116,95,110,101,119,95,112,116,114,102
+	.byte 114,101,101,95,98,111,120,0,3,193,0,18,205,7,20,109,111,110,111,95,111,98,106,101,99,116,95,110,101,119,95,102
+	.byte 97,115,116,0,3,19,3,193,0,19,93,3,193,0,18,138,3,193,0,14,125,3,193,0,14,6,3,193,0,14,8,3
+	.byte 193,0,14,7,3,193,0,14,9,3,194,0,2,111,3,193,0,12,128,3,255,255,0,0,0,0,202,0,0,60,3,193
+	.byte 0,19,27
 .text
 	.align 3
 got_info_offsets:
 
 	.long 0,2,3,6,9,12,16,19
-	.long 23,26,30,33,36,39,42,49
+	.long 23,26,30,33,36,39,42
 .text
 	.align 3
 ex_info:
@@ -1023,16 +993,13 @@ Le_13_p:
 Le_14_p:
 
 	.byte 132,140,2,129,83,0
-Le_16_p:
-
-	.byte 128,172,2,129,116,0
 .text
 	.align 3
 ex_info_offsets:
 
 	.long Le_0_p - ex,Le_1_p - ex,Le_2_p - ex,Le_3_p - ex,Le_4_p - ex,Le_5_p - ex,Le_6_p - ex,Le_7_p - ex
 	.long Le_8_p - ex,Le_9_p - ex,Le_a_p - ex,Le_b_p - ex,Le_c_p - ex,Le_d_p - ex,Le_e_p - ex,Le_f_p - ex
-	.long Le_10_p - ex,Le_11_p - ex,Le_12_p - ex,Le_13_p - ex,Le_14_p - ex,0,Le_16_p - ex
+	.long Le_10_p - ex,Le_11_p - ex,Le_12_p - ex,Le_13_p - ex,Le_14_p - ex,0,0
 
 .text
 	.align 3
@@ -1049,8 +1016,7 @@ unwind_info:
 	.byte 26,12,13,0,76,14,8,135,2,68,14,32,134,8,136,7,138,6,139,5,140,4,142,3,68,13,11,27,12,13,0,76
 	.byte 14,8,135,2,68,14,28,134,7,136,6,139,5,140,4,142,3,68,14,40,68,13,11,27,12,13,0,76,14,8,135,2
 	.byte 68,14,28,136,7,138,6,139,5,140,4,142,3,68,14,56,68,13,11,32,12,13,0,76,14,8,135,2,68,14,36,133
-	.byte 9,134,8,136,7,138,6,139,5,140,4,142,3,68,14,144,1,68,13,11,33,12,13,0,72,14,40,132,10,133,9,134
-	.byte 8,135,7,136,6,137,5,138,4,139,3,140,2,142,1,68,14,160,1,68,13,11
+	.byte 9,134,8,136,7,138,6,139,5,140,4,142,3,68,14,144,1,68,13,11
 .text
 	.align 3
 class_info:
@@ -1088,337 +1054,312 @@ plt:
 mono_aot_Assembly_UnityScript_firstpass_plt:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 60,0
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 56,0
 p_1:
 plt_UnityEngine_MonoBehaviour__ctor:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 64,50
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 60,49
 p_2:
 plt__jit_icall_mono_arch_throw_corlib_exception:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 68,55
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 64,54
 p_3:
 plt_UnityEngine_Component_get_transform:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 72,90
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 68,89
 p_4:
 plt_UnityEngine_Transform_get_eulerAngles:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 76,95
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 72,94
 p_5:
 plt_UnityEngine_Component_get_rigidbody:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 80,100
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 76,99
 p_6:
 plt_UnityEngine_Object_op_Implicit_UnityEngine_Object:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 84,105
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 80,104
 p_7:
 plt_UnityEngine_Rigidbody_set_freezeRotation_bool:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 88,110
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 84,109
 p_8:
 plt_UnityEngine_Input_GetAxis_string:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 92,115
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 88,114
 p_9:
 plt_UnityEngine_Quaternion_Euler_single_single_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 96,120
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 92,119
 p_10:
 plt_UnityEngine_Vector3__ctor_single_single_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 100,125
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 96,124
 p_11:
 plt_UnityEngine_Quaternion_op_Multiply_UnityEngine_Quaternion_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 104,130
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 100,129
 p_12:
 plt_UnityEngine_Transform_get_position:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 108,135
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 104,134
 p_13:
 plt_UnityEngine_Vector3_op_Addition_UnityEngine_Vector3_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 112,140
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 108,139
 p_14:
 plt_UnityEngine_Transform_set_rotation_UnityEngine_Quaternion:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 116,145
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 112,144
 p_15:
 plt_UnityEngine_Transform_set_position_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 120,150
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 116,149
 p_16:
 plt_UnityEngine_Mathf_Clamp_single_single_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 124,155
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 120,154
 p_17:
 plt_UnityEngine_Time_get_deltaTime:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 128,160
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 124,159
 p_18:
 plt_UnityEngine_Mathf_LerpAngle_single_single_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 132,165
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 128,164
 p_19:
 plt_UnityEngine_Mathf_Lerp_single_single_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 136,170
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 132,169
 p_20:
 plt_UnityEngine_Vector3_get_forward:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 140,175
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 136,174
 p_21:
 plt_UnityEngine_Vector3_op_Multiply_UnityEngine_Vector3_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 144,180
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 140,179
 p_22:
 plt_UnityEngine_Vector3_op_Subtraction_UnityEngine_Vector3_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 148,185
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 144,184
 p_23:
 plt_UnityEngine_Transform_LookAt_UnityEngine_Transform:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 152,190
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 148,189
 p_24:
 plt_UnityEngine_Quaternion_LookRotation_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 156,195
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 152,194
 p_25:
 plt_UnityEngine_Transform_get_rotation:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 160,200
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 156,199
 p_26:
 plt_UnityEngine_Quaternion_Slerp_UnityEngine_Quaternion_UnityEngine_Quaternion_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 164,205
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 160,204
 p_27:
 plt_string_memset_byte__int_int:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 168,210
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 164,209
 p_28:
 plt_UnityEngine_Input_GetMouseButtonDown_int:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 172,215
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 168,214
 p_29:
 plt_UnityEngine_Input_get_mousePosition:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 176,220
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 172,219
 p_30:
 plt_UnityEngine_Camera_ScreenPointToRay_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 180,225
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 176,224
 p_31:
 plt_UnityEngine_Physics_Raycast_UnityEngine_Ray_UnityEngine_RaycastHit__single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 184,230
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 180,229
 p_32:
 plt_UnityEngine_RaycastHit_get_rigidbody:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 188,235
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 184,234
 p_33:
 plt_UnityEngine_Rigidbody_get_isKinematic:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 192,240
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 188,239
 p_34:
 plt__jit_icall_mono_object_new_ptrfree:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 196,245
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 192,244
 p_35:
 plt_UnityEngine_GameObject__ctor_string:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 200,271
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 196,270
 p_36:
 plt_UnityEngine_GameObject_AddComponent_string:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 204,276
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 200,275
 p_37:
 plt_UnityEngine_Rigidbody_set_isKinematic_bool:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 208,281
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 204,280
 p_38:
 plt_UnityEngine_Rigidbody_get_centerOfMass:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 212,286
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 208,285
 p_39:
 plt_UnityEngine_Transform_TransformDirection_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 216,291
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 212,290
 p_40:
 plt_UnityEngine_Transform_InverseTransformPoint_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 220,296
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 216,295
 p_41:
 plt_UnityEngine_Joint_set_anchor_UnityEngine_Vector3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 224,301
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 220,300
 p_42:
 plt_UnityEngine_Vector3_get_zero:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 228,306
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 224,305
 p_43:
 plt_UnityEngine_SpringJoint_set_spring_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 232,311
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 228,310
 p_44:
 plt_UnityEngine_SpringJoint_set_damper_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 236,316
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 232,315
 p_45:
 plt_UnityEngine_SpringJoint_set_maxDistance_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 240,321
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 236,320
 p_46:
 plt_UnityEngine_Joint_set_connectedBody_UnityEngine_Rigidbody:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 244,326
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 240,325
 p_47:
 plt__jit_icall_mono_object_new_ptrfree_box:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 248,331
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 244,330
 p_48:
 plt_UnityEngine_MonoBehaviour_StartCoroutine_string_object:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 252,361
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 248,360
 p_49:
 plt__jit_icall_mono_object_new_fast:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 256,366
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 252,365
 p_50:
 plt_DragRigidbody__DragObject_3_GetEnumerator:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 260,389
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 256,388
 p_51:
 plt_UnityEngine_Component_get_camera:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 264,391
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 260,390
 p_52:
 plt_UnityEngine_Camera_get_main:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 268,396
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 264,395
 p_53:
 plt_UnityEngine_Joint_get_connectedBody:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 272,401
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 268,400
 p_54:
 plt_UnityEngine_Rigidbody_get_drag:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 276,406
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 272,405
 p_55:
 plt_UnityEngine_Rigidbody_get_angularDrag:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 280,411
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 276,410
 p_56:
 plt_UnityEngine_Rigidbody_set_drag_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 284,416
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 280,415
 p_57:
 plt_UnityEngine_Rigidbody_set_angularDrag_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 288,421
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 284,420
 p_58:
 plt_string_memcpy_byte__byte__int:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 292,426
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 288,425
 p_59:
 plt_UnityEngine_Ray_GetPoint_single:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 296,431
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 292,430
 p_60:
 plt_Boo_Lang_GenericGeneratorEnumerator_1_object_YieldDefault_int:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 300,436
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 296,435
 p_61:
 plt_UnityEngine_Input_GetMouseButton_int:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 304,447
-p_62:
-plt__jit_icall_mono_get_lmf_addr:
-
-	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 308,452
-p_63:
-plt__icall_native_System_Array_GetGenericValueImpl_object_int_object_:
-
-	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 312,472
-p_64:
-plt__jit_icall_mono_create_corlib_exception_0:
-
-	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 316,490
-p_65:
-plt__jit_icall_mono_arch_throw_exception:
-
-	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 320,523
-p_66:
-plt__jit_icall_mono_thread_interruption_checkpoint:
-
-	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 324,551
+	.long mono_aot_Assembly_UnityScript_firstpass_got - . + 300,446
 plt_end:
 .text
 	.align 3
@@ -1426,7 +1367,7 @@ mono_image_table:
 
 	.long 4
 	.asciz "Assembly-UnityScript-firstpass"
-	.asciz "4B943C35-DD82-4EE6-B6B0-496BEB830B3D"
+	.asciz "9B26C0D7-ABA4-4ACB-9E86-02BC73B81CFB"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -1456,7 +1397,7 @@ mono_image_table:
 .data
 	.align 3
 mono_aot_Assembly_UnityScript_firstpass_got:
-	.space 332
+	.space 308
 got_end:
 .data
 	.align 3
@@ -1467,12 +1408,12 @@ mono_aot_got_addr:
 	.align 3
 mono_aot_file_info:
 
-	.long 16,332,67,23,1024,1024,128,0
+	.long 15,308,62,23,1024,1024,128,0
 	.long 0,0,0,0,0
 .text
 	.align 2
 mono_assembly_guid:
-	.asciz "4B943C35-DD82-4EE6-B6B0-496BEB830B3D"
+	.asciz "9B26C0D7-ABA4-4ACB-9E86-02BC73B81CFB"
 .text
 	.align 2
 mono_aot_version:

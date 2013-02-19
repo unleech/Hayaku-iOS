@@ -81,8 +81,8 @@
 // loop to wait for OS to pump all events.
 // Meaningful only if EVENT_PUMP_BASED_LOOP method is used.
 
-#define USE_OPENGLES20_IF_AVAILABLE 1
-#define USE_DISPLAY_LINK_IF_AVAILABLE 0
+#define USE_OPENGLES20_IF_AVAILABLE 0
+#define USE_DISPLAY_LINK_IF_AVAILABLE 1
 // MSAA_DEFAULT_SAMPLE_COUNT was moved to iPhone_GlesSupport.h
 
 //#define FALLBACK_LOOP_TYPE NSTIMER_BASED_LOOP
@@ -110,7 +110,7 @@
 
 // kFPS define for removed
 // you can use Application.targetFrameRate (30 fps by default)
-
+#define kFPS 60.0
 // Time to process events in seconds.
 // Only used when display link loop is enabled.
 #define kInputProcessingTime                    0.001
@@ -1303,6 +1303,10 @@ void uncaughtExceptionHandler(NSException *exception) {
 // it goes for UnityViewController_preIOS6 (ios6 sdk) or to our own on older sdk
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if (lockOrientation) {
+        return NO;
+    }
+    
     EnabledOrientation targetAutorot   = kAutorotateToPortrait;
     ScreenOrientation  targetOrient    = ConvertToUnityScreenOrientation(interfaceOrientation, &targetAutorot);
     ScreenOrientation  requestedOrientation = UnityRequestedScreenOrientation();
@@ -1320,6 +1324,9 @@ void uncaughtExceptionHandler(NSException *exception) {
 @implementation UnityViewController_IOS6
 - (BOOL)shouldAutorotate
 {
+    if (lockOrientation) {
+        return NO;
+    }
     return (UnityRequestedScreenOrientation() == autorotation);
 }
 

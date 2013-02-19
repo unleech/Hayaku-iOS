@@ -311,7 +311,7 @@
     {
         [Flurry logEvent:@"Twitter_Failed"];
         [[GAI sharedInstance].defaultTracker sendEventWithCategory:@"Button" withAction:@"Press" withLabel:@"Twitter_Sorry" withValue:nil];
-        CustomAlert *alertView = [[CustomAlert alloc]
+        UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Sorry" message:@"Make sure your device has an internet connection and your Twitter account has been set up."
                                   delegate:self
                                   cancelButtonTitle:@"OK"

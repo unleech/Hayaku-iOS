@@ -10,6 +10,8 @@
 #import "CustomAlert.h"
 #import "Flurry.h"
 #import "GAI.h"
+#import "AppController.h"
+#import "SplashScreen.h"
 
 @implementation FacebookManager
 
@@ -112,7 +114,7 @@ static FacebookManager *_facebookManager = nil;
 #pragma mark others
 - (void)showAlertWithText:(NSString *)alertText{
     // Show the result in an alert
-    [[[CustomAlert alloc] initWithTitle:@"Result"
+    [[[UIAlertView alloc] initWithTitle:@"Result"
                                 message:alertText
                                delegate:self
                       cancelButtonTitle:@"OK!"
@@ -140,6 +142,9 @@ static FacebookManager *_facebookManager = nil;
 //    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 //    [appDelegate.rootController.view insertSubview:_navController.view atIndex:100];
     
+    [[UIApplication sharedApplication].keyWindow insertSubview:_navController.view atIndex:100];
+//    SplashScreen *delegate = (SplashScreen *)[[UIApplication sharedApplication] delegate];
+//    [delegate.view addSubview:_navController.view];
 }
 
 - (void)showSpinner{

@@ -830,6 +830,8 @@ void NotifyAutoOrientationChange()
 
 @implementation AppController
 
+@synthesize fbManager = _fbManager;
+
 - (void) registerAccelerometer
 {
 	int frequency = UnityGetAccelerometerFrequency();
@@ -1108,6 +1110,7 @@ void NotifyAutoOrientationChange()
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [Flurry startSession:FLURRY_KEY]; //LC
 
+    _fbManager = [[FacebookManager alloc] init];
     
     printf_console("-> applicationDidFinishLaunching()\n");
     // get local notification
@@ -1140,6 +1143,14 @@ void NotifyAutoOrientationChange()
 
 void uncaughtExceptionHandler(NSException *exception) {
     [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
+    return [_fbManager.session handleOpenURL:url];
 }
 
 // For iOS 4
@@ -1188,6 +1199,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 {
     printf_console("-> applicationWillTerminate()\n");
 
+    [_fbManager.session close];
+    
     Profiler_UninitProfiler();
 
     UnityCleanup();

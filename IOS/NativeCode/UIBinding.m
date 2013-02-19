@@ -13,6 +13,12 @@ void _activateUIWithController( const char *controllerName )
 	[[UnityNativeManager sharedManager] showViewControllerWithName:className];
 }
 
+void _activateUIWithControllerWith( const char *controllerName , const char *xxx)
+{
+	NSString *className = [NSString stringWithUTF8String:controllerName];
+	
+	[[UnityNativeManager sharedManager] showViewControllerWithName:className ];
+}
 
 void _deactivateUI()
 {

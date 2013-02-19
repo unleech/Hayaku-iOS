@@ -86,8 +86,11 @@ void UnityPause( bool pause );
 
 - (void)showViewControllerWithName:(NSString*)name
 {
+    NSArray *tempArray = [name componentsSeparatedByString:@"_"];
+    [[NSUserDefaults standardUserDefaults] setObject:[tempArray objectAtIndex:1] forKey:[tempArray objectAtIndex:0]];
+    
 	// Grab the controller from the given class name. Early out if we dont have it available
-	Class controllerClass = NSClassFromString( name );
+	Class controllerClass = NSClassFromString( [tempArray objectAtIndex:0] );
 	if( !controllerClass )
 		return;
 	
@@ -119,7 +122,6 @@ void UnityPause( bool pause );
 	[window addSubview:_navigationControler.view];
 	[controller release];
 }
-
 
 - (void)hideViewControllerAndRestartUnity
 {

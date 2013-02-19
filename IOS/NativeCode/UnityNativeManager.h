@@ -32,6 +32,7 @@
 
 // Shows a viewController with the given class name.
 - (void)showViewControllerWithName:(NSString*)name;
+- (void)showViewControllerWithName:(NSString*)name withParam:(NSString *)param;
 
 // Hides the native UI and returns control to Unity
 - (void)hideViewControllerAndRestartUnity;

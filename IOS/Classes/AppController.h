@@ -1,8 +1,11 @@
 #import <UIKit/UIKit.h>
+#import "FacebookManager.h"
 
 @interface AppController : NSObject<UIAccelerometerDelegate, UIApplicationDelegate>
 {
 }
+@property (nonatomic, readonly)__strong FacebookManager *fbManager;
+
 - (void) startUnity:(UIApplication*)application;
 - (void) startRendering;
 - (void) Repaint;

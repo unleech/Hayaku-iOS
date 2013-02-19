@@ -18,7 +18,7 @@
 #import "Flurry.h"
 #import "GAI.h"
 
-
+#import "AppController.h"
 
 @interface SplashScreen ()
 @property (retain, nonatomic) IBOutlet UIImageView *Logo;
@@ -50,7 +50,8 @@
         // Custom initialization
         NSLog(@"initS");
         
-//        _fbManager = [[FacebookManager alloc] init];
+        AppController *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
+        _fbManager = delegate.fbManager;
     }
     return self;
 }
@@ -61,9 +62,21 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    NSString *tempString = [[NSUserDefaults standardUserDefaults] objectForKey:@"SplashScreen"];
     
-    //insert loading screen for x seconds... then show menu
-    [self performSelector:@selector(gotoMainMenu) withObject:nil afterDelay:0.1f];
+    if ([tempString isEqualToString:@"1"]) {
+        //insert loading screen for x seconds... then show menu
+        [self performSelector:@selector(gotoMainMenu) withObject:nil afterDelay:0.1f];
+    }
+    else if ([tempString isEqualToString:@"2"]) {
+        //insert loading screen for x seconds... then show menu
+        [self performSelector:@selector(gotoMainMenu) withObject:nil afterDelay:0.1f];
+    }
+    else if ([tempString isEqualToString:@"3"]) {
+        //insert loading screen for x seconds... then show menu
+        [self performSelector:@selector(gotoMapScene) withObject:nil afterDelay:0.1f];
+    }
 }
 
 - (void)didReceiveMemoryWarning

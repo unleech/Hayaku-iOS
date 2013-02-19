@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
         self.view.frame = CGRectMake (0,0,320,480);
         self.view.backgroundColor = [UIColor clearColor];
     }
@@ -59,5 +60,14 @@
 }
 - (void)dealloc{
     NSLog(@"%@ deallocated!",[self class]);
+}
+
+-(BOOL)shouldAutorotate
+{
+    return UIInterfaceOrientationLandscapeRight;
+}
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return UIInterfaceOrientationLandscapeRight;
 }
 @end

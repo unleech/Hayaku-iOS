@@ -23,12 +23,18 @@
 @interface SplashScreen ()
 @property (retain, nonatomic) IBOutlet UIImageView *Logo;
 @property (retain, nonatomic) IBOutlet UIButton *PlayButton;
+@property (retain, nonatomic) IBOutlet UIView *mainView;
 
 @property (retain, nonatomic) IBOutlet UIView *mapSceneView;
 @property (retain, nonatomic) IBOutlet UIButton *button_map_cliff;
 @property (retain, nonatomic) IBOutlet UIButton *button_map_warehouse;
 @property (retain, nonatomic) IBOutlet UIButton *button_map_temple;
 @property (retain, nonatomic) IBOutlet UIButton *button_map_castle;
+@property (retain, nonatomic) IBOutlet UIView *loadingView;
+@property (retain, nonatomic) IBOutlet UIImageView *hudInfo;
+@property (retain, nonatomic) IBOutlet UIImageView *hudHP;
+@property (retain, nonatomic) IBOutlet UIImageView *hudMP;
+@property (retain, nonatomic) IBOutlet UIImageView *hudCombo;
 
 
 
@@ -93,6 +99,12 @@
     [_button_map_temple release];
     [_button_map_castle release];
     [_mapSceneView release];
+    [_loadingView release];
+    [_hudInfo release];
+    [_hudHP release];
+    [_hudMP release];
+    [_hudCombo release];
+    [_mainView release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -103,6 +115,12 @@
     [self setButton_map_temple:nil];
     [self setButton_map_castle:nil];
     [self setMapSceneView:nil];
+    [self setLoadingView:nil];
+    [self setHudInfo:nil];
+    [self setHudHP:nil];
+    [self setHudMP:nil];
+    [self setHudCombo:nil];
+    [self setMainView:nil];
     [super viewDidUnload];
 }
 

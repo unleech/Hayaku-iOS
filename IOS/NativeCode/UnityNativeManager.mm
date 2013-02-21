@@ -89,6 +89,29 @@ void UnityPause( bool pause );
 {
     NSArray *tempArray = [name componentsSeparatedByString:@"_"];
     [[NSUserDefaults standardUserDefaults] setObject:[tempArray objectAtIndex:1] forKey:[tempArray objectAtIndex:0]];
+
+    if (_navigationControler) {
+        // Pause Unity
+        UnityPause( true );
+        
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        
+        [_navigationControler.view setBackgroundColor:[UIColor blackColor]];
+        [_navigationControler.view setFrame:window.frame];
+        
+        // Set up the fade-in animation
+        CATransition *animation = [CATransition animation];
+        [animation setType:_animationType];
+        [animation setSubtype:_animationSubtype];
+        [animation setDuration:_animationDuration];
+        [animation setTimingFunction:_animationTimingFunction];
+        [window.layer addAnimation:animation forKey:@"layerAnimation"];
+        
+        
+        
+        [[SplashScreen sharedInstance] viewDidLoad];
+        return;
+    }
     
 	// Grab the controller from the given class name. Early out if we dont have it available
 	Class controllerClass = NSClassFromString( [tempArray objectAtIndex:0] );
@@ -102,7 +125,7 @@ void UnityPause( bool pause );
 	UIViewController *controller = [[SplashScreen sharedInstance] initWithNibName:nil bundle:nil];
 	_navigationControler = [[UINavigationController alloc] initWithRootViewController:controller];
 	_navigationControler.navigationBarHidden = YES;
-	_navigationControler.view.backgroundColor = [UIColor clearColor];
+	_navigationControler.view.backgroundColor = [UIColor blackColor];
 	
 	UIWindow *window = [UIApplication sharedApplication].keyWindow;
 	

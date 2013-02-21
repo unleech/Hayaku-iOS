@@ -42,6 +42,13 @@ enum eScene
 @property (retain, nonatomic) IBOutlet UIImageView *hudMP;
 @property (retain, nonatomic) IBOutlet UIImageView *hudCombo;
 
+@property (retain, nonatomic) IBOutlet UIView *objectiveView;
+@property (retain, nonatomic) IBOutlet UIImageView *mission1;
+@property (retain, nonatomic) IBOutlet UIImageView *mission2;
+@property (retain, nonatomic) IBOutlet UIImageView *mission3;
+@property (retain, nonatomic) IBOutlet UIImageView *mission4;
+@property (retain, nonatomic) IBOutlet UIButton *buttonPlay;
+@property (retain, nonatomic) IBOutlet UIButton *buttonBack;
 
 
 - (IBAction)onPlayButton:(UIButton *)sender;
@@ -49,6 +56,8 @@ enum eScene
 - (IBAction)onWarehouseButton:(UIButton *)sender;
 - (IBAction)onTempleButton:(UIButton *)sender;
 - (IBAction)onCastleButton:(UIButton *)sender;
+- (IBAction)onPlayGame:(UIButton *)sender;
+- (IBAction)onBack:(UIButton *)sender;
 
 
 @end
@@ -62,7 +71,7 @@ static SplashScreen* _splashScreen = nil;
 	if (!_splashScreen)
 	{
 		
-		_splashScreen = [[self alloc] initWithNibName:@"" bundle:@""];
+		_splashScreen = [[self alloc] initWithNibName:nil bundle:nil];
 	}
 	
 	return _splashScreen;
@@ -121,6 +130,13 @@ static SplashScreen* _splashScreen = nil;
     [_hudMP release];
     [_hudCombo release];
     [_mainView release];
+    [_objectiveView release];
+    [_mission1 release];
+    [_mission2 release];
+    [_mission3 release];
+    [_mission4 release];
+    [_buttonPlay release];
+    [_buttonBack release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -137,6 +153,13 @@ static SplashScreen* _splashScreen = nil;
     [self setHudMP:nil];
     [self setHudCombo:nil];
     [self setMainView:nil];
+    [self setObjectiveView:nil];
+    [self setMission1:nil];
+    [self setMission2:nil];
+    [self setMission3:nil];
+    [self setMission4:nil];
+    [self setButtonPlay:nil];
+    [self setButtonBack:nil];
     [super viewDidUnload];
 }
 
@@ -305,6 +328,10 @@ static SplashScreen* _splashScreen = nil;
 
 - (void)gotoMainMenu
 {
+    _loadingView.hidden = YES;
+    _mainView.hidden = NO;
+    _mainView.alpha = 1;
+    
     _Logo.hidden = NO;
     _Logo.alpha = 0;
     
@@ -341,13 +368,16 @@ static SplashScreen* _splashScreen = nil;
                      }
                      completion:^(BOOL completed) {
                          [self gotoMapScene];
+                         [_PlayButton setFrame:CGRectMake(temp.origin.x, temp.origin.y, temp.size.width, temp.size.height)];
                      }];
     
 }
 
 - (void) gotoMapScene
 {
+    _mainView.hidden = NO;
     _mapSceneView.hidden = NO;
+    _mapSceneView.alpha = 1;
     
     _button_map_castle.hidden = NO;
     _button_map_castle.alpha = 0;
@@ -372,45 +402,69 @@ static SplashScreen* _splashScreen = nil;
 
 #pragma mark - MAP SCENE
 - (IBAction)onCliffButton:(UIButton *)sender {
-    
-    [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
-    
-    [[UnityNativeManager sharedManager] pauseUnity:NO];
-    
-    NSDictionary *tempDict = @{@"Scene" : @"GameScene", @"Stage" : @"Cliff"};
-
-//    NSMutableData *data = [[NSMutableData alloc]init];
-//    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
-//    [archiver encodeObject:tempDict forKey: @"1"];
-//    [archiver finishEncoding];
-
-
-    
-    
-    NSString *tempString;
-    tempString = [NSString stringWithFormat:@"%@", tempDict];
-	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_1" UTF8String]);
+    _objectiveView.hidden = NO;
+    _mission1.hidden = NO;
 }
 
 - (IBAction)onWarehouseButton:(UIButton *)sender {
-    [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
-    
-    [[UnityNativeManager sharedManager] pauseUnity:NO];
-	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_2" UTF8String] );
+    _objectiveView.hidden = NO;
+    _mission2.hidden = NO;
 }
 
 - (IBAction)onTempleButton:(UIButton *)sender {
-    [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
-    
-    [[UnityNativeManager sharedManager] pauseUnity:NO];
-	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_3" UTF8String] );
+    _objectiveView.hidden = NO;
+    _mission3.hidden = NO;
 }
 
 - (IBAction)onCastleButton:(UIButton *)sender {
+    _objectiveView.hidden = NO;
+    _mission4.hidden = NO;
+}
+
+- (IBAction)onPlayGame:(UIButton *)sender {
+    NSString *tempString;
+    
+    if (!_mission1.hidden) {
+        tempString = @"GameScene_1";
+    }
+    else if (!_mission2.hidden) {
+        tempString = @"GameScene_2";
+    }
+    else if (!_mission3.hidden) {
+        tempString = @"GameScene_3";
+    }
+    else if (!_mission4.hidden) {
+        tempString = @"GameScene_4";
+    }
+    
+    NSString *tempStringCharacter = @"player";
+    
+    _objectiveView.hidden = YES;
+    _mission1.hidden = YES;
+    _mission2.hidden = YES;
+    _mission3.hidden = YES;
+    _mission4.hidden = YES;
+    
     [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
-//    [self publishFB];
+    
     [[UnityNativeManager sharedManager] pauseUnity:NO];
-	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_4" UTF8String] );
+    UnitySendMessage( "UnityGameController", "loadLevel", [tempString UTF8String]);    
+    UnitySendMessage( "UnityGameController", "selectedCharacter", [tempStringCharacter UTF8String]);
+}
+
+- (IBAction)onBack:(UIButton *)sender {
+    
+    if (_objectiveView.hidden) {
+        _mapSceneView.hidden = YES;
+        [self gotoMainMenu];
+    }
+    else {
+        _objectiveView.hidden = YES;
+        _mission1.hidden = YES;
+        _mission2.hidden = YES;
+        _mission3.hidden = YES;
+        _mission4.hidden = YES;
+    }
 }
 
 

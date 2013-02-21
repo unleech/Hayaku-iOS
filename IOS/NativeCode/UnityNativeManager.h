@@ -36,6 +36,7 @@
 
 // Hides the native UI and returns control to Unity
 - (void)hideViewControllerAndRestartUnity;
+- (void)hideViewController;
 
 - (void)pauseUnity:(BOOL)shouldPause;
 

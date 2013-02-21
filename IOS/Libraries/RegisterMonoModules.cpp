@@ -23,6 +23,9 @@ extern "C"
 	extern gpointer*	mono_aot_module_mscorlib_info; // mscorlib.dll
 #endif // !(TARGET_IPHONE_SIMULATOR)
 	void	_activateUIWithController();
+	void	_setHP();
+	void	_setMP();
+	void	_setCombo();
 	void	_deactivateUI();
 }
 void RegisterMonoModules()
@@ -42,6 +45,9 @@ void RegisterMonoModules()
 	mono_aot_register_module(mono_aot_module_mscorlib_info);
 
 	mono_dl_register_symbol("_activateUIWithController", (void*)&_activateUIWithController);
+	mono_dl_register_symbol("_setHP", (void*)&_setHP);
+	mono_dl_register_symbol("_setMP", (void*)&_setMP);
+	mono_dl_register_symbol("_setCombo", (void*)&_setCombo);
 	mono_dl_register_symbol("_deactivateUI", (void*)&_deactivateUI);
 #endif // !(TARGET_IPHONE_SIMULATOR)
 }

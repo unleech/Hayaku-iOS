@@ -12,6 +12,15 @@
 @interface SplashScreen : UIViewController
 {
     FacebookManager* _fbManager;
+    int counter;
+    int counterHP;
+    int counterMP;
 }
+
++ (id) sharedInstance;
+
+- (void)setHP:(int) count;
+- (void)setMP:(int) count;
+- (void)setCombo:(int) count;
 
 @end

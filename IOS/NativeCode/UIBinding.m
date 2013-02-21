@@ -4,7 +4,7 @@
 
 #import "UIBinding.h"
 #import "UnityNativeManager.h"
-
+#import "SplashScreen.h"
 
 void _activateUIWithController( const char *controllerName )
 {
@@ -13,11 +13,19 @@ void _activateUIWithController( const char *controllerName )
 	[[UnityNativeManager sharedManager] showViewControllerWithName:className];
 }
 
-void _activateUIWithControllerWith( const char *controllerName , const char *xxx)
+void _setHP( int count)
 {
-	NSString *className = [NSString stringWithUTF8String:controllerName];
-	
-	[[UnityNativeManager sharedManager] showViewControllerWithName:className ];
+    [[SplashScreen sharedInstance] setHP:count];
+}
+
+void _setMP( int count)
+{
+    [[SplashScreen sharedInstance] setMP:count];
+}
+
+void _setCombo( int count)
+{
+    [[SplashScreen sharedInstance] setCombo:count];
 }
 
 void _deactivateUI()

@@ -80,13 +80,9 @@
 		8851118516D1DE4100C74D07 /* HudManaTick2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116816D1DE4100C74D07 /* HudManaTick2.png */; };
 		8851118616D1DE4100C74D07 /* HudManaTick3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116916D1DE4100C74D07 /* HudManaTick3.png */; };
 		8851118716D1DE4100C74D07 /* logo copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116A16D1DE4100C74D07 /* logo copy.png */; };
-		8851118816D1DE4100C74D07 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116B16D1DE4100C74D07 /* logo.png */; };
 		8851118916D1DE4100C74D07 /* map copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116C16D1DE4100C74D07 /* map copy.png */; };
-		8851118A16D1DE4100C74D07 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116D16D1DE4100C74D07 /* map.png */; };
 		8851118B16D1DE4100C74D07 /* wood copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116E16D1DE4100C74D07 /* wood copy.png */; };
-		8851118C16D1DE4100C74D07 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851116F16D1DE4100C74D07 /* wood.png */; };
 		8851119316D1DE4E00C74D07 /* SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8851118E16D1DE4E00C74D07 /* SplashScreen.m */; };
-		8851119416D1DE4E00C74D07 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8851118F16D1DE4E00C74D07 /* SplashScreen.xib */; };
 		8851119516D1DE4E00C74D07 /* TestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8851119116D1DE4E00C74D07 /* TestViewController.mm */; };
 		8851119616D1DE4E00C74D07 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8851119216D1DE4E00C74D07 /* TestViewController.xib */; };
 		885111BA16D1E32F00C74D07 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 885111B216D1E32F00C74D07 /* FacebookManager.m */; };
@@ -105,6 +101,11 @@
 		885111DD16D1E56400C74D07 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111DC16D1E56400C74D07 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		885111E116D1E66500C74D07 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111E016D1E66500C74D07 /* CoreData.framework */; };
 		885111E716D1E77800C74D07 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111E616D1E77800C74D07 /* Twitter.framework */; };
+		88AE44DC16D5CEB800246749 /* Mission1 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44D816D5CEB800246749 /* Mission1 copy.png */; };
+		88AE44DD16D5CEB800246749 /* Mission2 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44D916D5CEB800246749 /* Mission2 copy.png */; };
+		88AE44DE16D5CEB800246749 /* Mission3 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44DA16D5CEB800246749 /* Mission3 copy.png */; };
+		88AE44DF16D5CEB800246749 /* Mission4 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44DB16D5CEB800246749 /* Mission4 copy.png */; };
+		88AE44E116D5CF0000246749 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44E016D5CF0000246749 /* SplashScreen.xib */; };
 		8A2EF43E138549090070AA2F /* iPhone_Profiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EF43C138549090070AA2F /* iPhone_Profiler.cpp */; };
 		8A2EF43F138549090070AA2F /* iPhone_Profiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EF43C138549090070AA2F /* iPhone_Profiler.cpp */; };
 		8A2EF57A13856A230070AA2F /* iPhone_GlesSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EF57813856A230070AA2F /* iPhone_GlesSupport.cpp */; };
@@ -202,14 +203,10 @@
 		8851116816D1DE4100C74D07 /* HudManaTick2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HudManaTick2.png; path = Resources/HudManaTick2.png; sourceTree = "<group>"; };
 		8851116916D1DE4100C74D07 /* HudManaTick3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HudManaTick3.png; path = Resources/HudManaTick3.png; sourceTree = "<group>"; };
 		8851116A16D1DE4100C74D07 /* logo copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo copy.png"; path = "Resources/logo copy.png"; sourceTree = "<group>"; };
-		8851116B16D1DE4100C74D07 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
 		8851116C16D1DE4100C74D07 /* map copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map copy.png"; path = "Resources/map copy.png"; sourceTree = "<group>"; };
-		8851116D16D1DE4100C74D07 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Resources/map.png; sourceTree = "<group>"; };
 		8851116E16D1DE4100C74D07 /* wood copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wood copy.png"; path = "Resources/wood copy.png"; sourceTree = "<group>"; };
-		8851116F16D1DE4100C74D07 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wood.png; path = Resources/wood.png; sourceTree = "<group>"; };
 		8851118D16D1DE4E00C74D07 /* SplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreen.h; sourceTree = "<group>"; };
 		8851118E16D1DE4E00C74D07 /* SplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreen.m; sourceTree = "<group>"; };
-		8851118F16D1DE4E00C74D07 /* SplashScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
 		8851119016D1DE4E00C74D07 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		8851119116D1DE4E00C74D07 /* TestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestViewController.mm; sourceTree = "<group>"; };
 		8851119216D1DE4E00C74D07 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -240,6 +237,11 @@
 		885111E016D1E66500C74D07 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		885111E616D1E77800C74D07 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		885111E816D1E95800C74D07 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		88AE44D816D5CEB800246749 /* Mission1 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mission1 copy.png"; path = "Resources/Mission1 copy.png"; sourceTree = "<group>"; };
+		88AE44D916D5CEB800246749 /* Mission2 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mission2 copy.png"; path = "Resources/Mission2 copy.png"; sourceTree = "<group>"; };
+		88AE44DA16D5CEB800246749 /* Mission3 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mission3 copy.png"; path = "Resources/Mission3 copy.png"; sourceTree = "<group>"; };
+		88AE44DB16D5CEB800246749 /* Mission4 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mission4 copy.png"; path = "Resources/Mission4 copy.png"; sourceTree = "<group>"; };
+		88AE44E016D5CF0000246749 /* SplashScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
 		8A2EF43C138549090070AA2F /* iPhone_Profiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iPhone_Profiler.cpp; sourceTree = "<group>"; };
 		8A2EF43D138549090070AA2F /* iPhone_Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Profiler.h; sourceTree = "<group>"; };
 		8A2EF57813856A230070AA2F /* iPhone_GlesSupport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iPhone_GlesSupport.cpp; sourceTree = "<group>"; };
@@ -416,7 +418,7 @@
 			children = (
 				8851118D16D1DE4E00C74D07 /* SplashScreen.h */,
 				8851118E16D1DE4E00C74D07 /* SplashScreen.m */,
-				8851118F16D1DE4E00C74D07 /* SplashScreen.xib */,
+				88AE44E016D5CF0000246749 /* SplashScreen.xib */,
 				8851119016D1DE4E00C74D07 /* TestViewController.h */,
 				8851119116D1DE4E00C74D07 /* TestViewController.mm */,
 				8851119216D1DE4E00C74D07 /* TestViewController.xib */,
@@ -437,6 +439,10 @@
 				8851115A16D1DE4100C74D07 /* buttonpressed_cliff.png */,
 				8851115B16D1DE4100C74D07 /* buttonpressed_temple.png */,
 				8851115C16D1DE4100C74D07 /* buttonpressed_warehouse.png */,
+				88AE44D816D5CEB800246749 /* Mission1 copy.png */,
+				88AE44D916D5CEB800246749 /* Mission2 copy.png */,
+				88AE44DA16D5CEB800246749 /* Mission3 copy.png */,
+				88AE44DB16D5CEB800246749 /* Mission4 copy.png */,
 				8851115D16D1DE4100C74D07 /* HudComboTick1.png */,
 				8851115E16D1DE4100C74D07 /* HudComboTick2.png */,
 				8851115F16D1DE4100C74D07 /* HudComboTick3.png */,
@@ -451,11 +457,8 @@
 				8851116816D1DE4100C74D07 /* HudManaTick2.png */,
 				8851116916D1DE4100C74D07 /* HudManaTick3.png */,
 				8851116A16D1DE4100C74D07 /* logo copy.png */,
-				8851116B16D1DE4100C74D07 /* logo.png */,
 				8851116C16D1DE4100C74D07 /* map copy.png */,
-				8851116D16D1DE4100C74D07 /* map.png */,
 				8851116E16D1DE4100C74D07 /* wood copy.png */,
-				8851116F16D1DE4100C74D07 /* wood.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -648,17 +651,18 @@
 				8851118516D1DE4100C74D07 /* HudManaTick2.png in Resources */,
 				8851118616D1DE4100C74D07 /* HudManaTick3.png in Resources */,
 				8851118716D1DE4100C74D07 /* logo copy.png in Resources */,
-				8851118816D1DE4100C74D07 /* logo.png in Resources */,
 				8851118916D1DE4100C74D07 /* map copy.png in Resources */,
-				8851118A16D1DE4100C74D07 /* map.png in Resources */,
 				8851118B16D1DE4100C74D07 /* wood copy.png in Resources */,
-				8851118C16D1DE4100C74D07 /* wood.png in Resources */,
-				8851119416D1DE4E00C74D07 /* SplashScreen.xib in Resources */,
 				8851119616D1DE4E00C74D07 /* TestViewController.xib in Resources */,
 				885111BC16D1E32F00C74D07 /* FacebookSDKResources.bundle in Resources */,
 				885111BE16D1E32F00C74D07 /* FBUserSettingsViewResources.bundle in Resources */,
 				885111BF16D1E32F00C74D07 /* InfoPlist.png in Resources */,
 				885111C016D1E32F00C74D07 /* ReadMe.rtf in Resources */,
+				88AE44DC16D5CEB800246749 /* Mission1 copy.png in Resources */,
+				88AE44DD16D5CEB800246749 /* Mission2 copy.png in Resources */,
+				88AE44DE16D5CEB800246749 /* Mission3 copy.png in Resources */,
+				88AE44DF16D5CEB800246749 /* Mission4 copy.png in Resources */,
+				88AE44E116D5CF0000246749 /* SplashScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

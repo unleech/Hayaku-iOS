@@ -21,6 +21,12 @@
 #import "AppController.h"
 
 @interface SplashScreen ()
+enum eScene
+{
+    eMainMenuScene,
+    eGameScene
+};
+
 @property (retain, nonatomic) IBOutlet UIImageView *Logo;
 @property (retain, nonatomic) IBOutlet UIButton *PlayButton;
 @property (retain, nonatomic) IBOutlet UIView *mainView;
@@ -48,13 +54,25 @@
 @end
 
 @implementation SplashScreen
+static SplashScreen* _splashScreen = nil;
+
++ (id) sharedInstance
+{
+	
+	if (!_splashScreen)
+	{
+		
+		_splashScreen = [[self alloc] initWithNibName:@"" bundle:@""];
+	}
+	
+	return _splashScreen;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSLog(@"initS");
         
         AppController *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
         _fbManager = delegate.fbManager;
@@ -64,16 +82,14 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"didloadS");
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
+    
     NSString *tempString = [[NSUserDefaults standardUserDefaults] objectForKey:@"SplashScreen"];
     
     if ([tempString isEqualToString:@"1"]) {
         //insert loading screen for x seconds... then show menu
-        [self performSelector:@selector(gotoMainMenu) withObject:nil afterDelay:0.1f];
+        [self performSelector:@selector(gotoSplashScreen:) withObject:[NSNumber numberWithInt:eMainMenuScene] afterDelay:0.1f];
     }
     else if ([tempString isEqualToString:@"2"]) {
         //insert loading screen for x seconds... then show menu
@@ -123,6 +139,169 @@
     [self setMainView:nil];
     [super viewDidUnload];
 }
+
+#pragma mark - Splash Screen
+- (void)gotoSplashScreen:(NSNumber *)scene
+{
+    //loading
+    _mapSceneView.hidden = YES;
+    _loadingView.hidden = NO;
+    _loadingView.alpha = 0;
+    _hudInfo.hidden = NO;
+    _hudInfo.alpha = 0;
+    
+    counter = 0;
+    counterHP = 0;
+    counterMP = 0;
+    [self setHP:counterHP];
+    [self setMP:counterMP];
+    [self setCombo:counter];
+    
+    [UIView animateWithDuration:1
+                          delay:0
+                        options:(UIViewAnimationOptionAllowUserInteraction)
+                     animations:^{
+                         _loadingView.alpha = 1;
+                         _hudInfo.alpha = 1;
+                         
+                     }
+                     completion:^(BOOL completed) {
+                         [self loadScreen:scene];
+                     }];
+}
+
+- (void)loadScreen:(NSNumber *)scene
+{
+    [self setCombo:counter];
+    
+    if (counter >= 7) {
+        counterHP++;
+        counterMP++;
+        [self setHP:counterHP];
+        [self setMP:counterMP];
+        counter = -1;
+    }
+    
+    if (counterHP >= 3 && counterMP >=3) {
+        if ([scene intValue] == eMainMenuScene) {
+            [UIView animateWithDuration:1
+                                  delay:0
+                                options:(UIViewAnimationOptionAllowUserInteraction)
+                             animations:^{
+                                 _loadingView.alpha = 0;
+                             }
+                             completion:^(BOOL completed) {
+                                 [self gotoMainMenu];
+                             }];
+        }
+        else if ([scene intValue] == eGameScene) {
+            [UIView animateWithDuration:0.5f
+                                  delay:0
+                                options:(UIViewAnimationOptionTransitionNone)
+                             animations:^{
+                                 _mainView.alpha = 0;
+                                 _mapSceneView.alpha = 0;
+                             }
+                             completion:^(BOOL completed) {
+                                 [[UnityNativeManager sharedManager] hideViewController]; //sets the view to 100,100
+                                 _mainView.hidden = YES;
+                                 _mapSceneView.hidden = YES;
+                             }];
+        }
+    }
+    else {
+        counter++;
+        [self performSelector:@selector(loadScreen:) withObject:scene afterDelay:0.05f];
+    }
+    
+}
+
+#pragma mark - SetInfoBars
+
+- (void)setHP:(int) count
+{
+    switch (count) {
+        case 0:
+            _hudHP.hidden = YES;
+            break;
+        case 1:
+            _hudHP.image = [UIImage imageNamed:@"HudHealthTick1"];
+            _hudHP.hidden = NO;
+            break;
+        case 2:
+            _hudHP.image = [UIImage imageNamed:@"HudHealthTick2"];
+            _hudHP.hidden = NO;
+            break;
+        case 3:
+            _hudHP.image = [UIImage imageNamed:@"HudHealthTick3"];
+            _hudHP.hidden = NO;
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setMP:(int) count
+{
+    switch (count) {
+        case 0:
+            _hudMP.hidden = YES;
+            break;
+        case 1:
+            _hudMP.image = [UIImage imageNamed:@"HudManaTick1"];
+            _hudMP.hidden = NO;
+            break;
+        case 2:
+            _hudMP.image = [UIImage imageNamed:@"HudManaTick2"];
+            _hudMP.hidden = NO;
+            break;
+        case 3:
+            _hudMP.image = [UIImage imageNamed:@"HudManaTick3"];
+            _hudMP.hidden = NO;
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setCombo:(int) count
+{
+    switch (count) {
+        case 0:
+            _hudCombo.hidden = YES;
+            break;
+        case 1:
+            _hudCombo.image = [UIImage imageNamed:@"HudComboTick1"];
+            _hudCombo.hidden = NO;
+            break;
+        case 2:
+            _hudCombo.image = [UIImage imageNamed:@"HudComboTick2"];
+            _hudCombo.hidden = NO;
+            break;
+        case 3:
+            _hudCombo.image = [UIImage imageNamed:@"HudComboTick3"];
+            _hudCombo.hidden = NO;
+            break;
+        case 4:
+            _hudCombo.image = [UIImage imageNamed:@"HudComboTick4"];
+            _hudCombo.hidden = NO;
+            break;
+        case 5:
+            _hudCombo.image = [UIImage imageNamed:@"HudComboTick5"];
+            _hudCombo.hidden = NO;
+            break;
+        case 6:
+            _hudCombo.image = [UIImage imageNamed:@"HudComboTick6"];
+            _hudCombo.hidden = NO;
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - Main Menu
 
 - (void)gotoMainMenu
 {
@@ -194,6 +373,8 @@
 #pragma mark - MAP SCENE
 - (IBAction)onCliffButton:(UIButton *)sender {
     
+    [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
+    
     [[UnityNativeManager sharedManager] pauseUnity:NO];
     
     NSDictionary *tempDict = @{@"Scene" : @"GameScene", @"Stage" : @"Cliff"};
@@ -212,19 +393,21 @@
 }
 
 - (IBAction)onWarehouseButton:(UIButton *)sender {
+    [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
     
     [[UnityNativeManager sharedManager] pauseUnity:NO];
 	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_2" UTF8String] );
 }
 
 - (IBAction)onTempleButton:(UIButton *)sender {
+    [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
     
     [[UnityNativeManager sharedManager] pauseUnity:NO];
 	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_3" UTF8String] );
 }
 
 - (IBAction)onCastleButton:(UIButton *)sender {
-
+    [self gotoSplashScreen:[NSNumber numberWithInt:eGameScene]];
 //    [self publishFB];
     [[UnityNativeManager sharedManager] pauseUnity:NO];
 	UnitySendMessage( "UnityGameController", "loadLevel", [@"GameScene_4" UTF8String] );

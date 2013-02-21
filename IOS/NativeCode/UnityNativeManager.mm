@@ -9,6 +9,7 @@
 #import "UnityNativeManager.h"
 #include <CoreGraphics/CoreGraphics.h> // Be sure to include CoreGraphics framework!
 
+#import "SplashScreen.h"
 
 void UnityPause( bool pause );
 
@@ -98,10 +99,10 @@ void UnityPause( bool pause );
 	UnityPause( true );
 	
 	// Instantiate the controller and wrap it in a UINavigationController
-	UIViewController *controller = [[controllerClass alloc] initWithNibName:nil bundle:nil];
+	UIViewController *controller = [[SplashScreen sharedInstance] initWithNibName:nil bundle:nil];
 	_navigationControler = [[UINavigationController alloc] initWithRootViewController:controller];
 	_navigationControler.navigationBarHidden = YES;
-	_navigationControler.view.backgroundColor = [UIColor orangeColor];
+	_navigationControler.view.backgroundColor = [UIColor clearColor];
 	
 	UIWindow *window = [UIApplication sharedApplication].keyWindow;
 	
@@ -146,6 +147,25 @@ void UnityPause( bool pause );
 	_navigationControler = nil;
 }
 
+- (void)hideViewController
+{
+	// Set up the fade-out animation
+	UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    CATransition *animation = [CATransition animation];
+    [animation setType:_animationType];
+	[animation setDuration:_animationDuration];
+	[animation setTimingFunction:_animationTimingFunction];
+	[animation setDelegate:self];
+	
+	// Reverse the animationSubtype if we have one
+	if( _animationSubtype )
+		[animation setSubtype:[self oppositeAnimationSubtype]];
+	
+    [window.layer addAnimation:animation forKey:@"layerAnimation"];
+	
+	[_navigationControler.view setBackgroundColor:[UIColor clearColor]];
+    [_navigationControler.view setFrame:CGRectMake(220, 0, 100, 100)];
+}
 
 - (void)pauseUnity:(BOOL)shouldPause
 {

@@ -103,7 +103,7 @@ static SplashScreen* _splashScreen = nil;
     [_labelHighestCombo setFont:[UIFont fontWithName:@"Vanilla" size:14]];
     [_labelTotalCakes setFont:[UIFont fontWithName:@"Vanilla" size:14]];
     [_labelTotalCoins setFont:[UIFont fontWithName:@"Vanilla" size:14]];
-    
+      
     NSString *tempString = [[NSUserDefaults standardUserDefaults] objectForKey:@"SplashScreen"];
     
     if ([tempString isEqualToString:@"1"]) {
@@ -348,30 +348,48 @@ static SplashScreen* _splashScreen = nil;
 - (void)gotoMainMenu
 {
     NSLog(@"gotoMainMenu");
+    int startingOpacity = 0;
+    
     _loadingView.hidden = YES;
     _mainView.hidden = NO;
     _mainView.alpha = 1;
     
     _Logo.hidden = NO;
-    _Logo.alpha = 1;
+    _Logo.alpha = startingOpacity;
     
     _PlayButton.hidden = NO;
-    _PlayButton.alpha = 1;
+    _PlayButton.alpha = startingOpacity;
+    
+    _labelHighestCombo.hidden = NO;
+    _labelHighestCombo.alpha = startingOpacity;
+    
+    _labelTotalCakes.hidden = NO;
+    _labelTotalCakes.alpha = startingOpacity;
+    
+    _labelTotalCoins.hidden = NO;
+    _labelTotalCoins.alpha = startingOpacity;
+    
     //buggy
-//    CGRect temp = _PlayButton.frame;
-//    [_PlayButton setFrame:CGRectMake(temp.origin.x + 300, temp.origin.y, temp.size.width, temp.size.height)];
-//    [UIView animateWithDuration:0
-//                          delay:0
-//                        options:(UIViewAnimationOptionCurveEaseInOut)
-//                     animations:^{
-//                         _Logo.alpha = 1;
-//                         
-//                         _PlayButton.alpha = 1;
-//                         //[_PlayButton setFrame:temp];
-//                     }
-//                     completion:^(BOOL completed) {
-//                         NSLog(@"completed");
-//                     }];
+    CGRect temp = _PlayButton.frame;
+    [_PlayButton setFrame:CGRectMake(temp.origin.x + 300, temp.origin.y, temp.size.width, temp.size.height)];
+    [UIView animateWithDuration:1
+                          delay:0
+                        options:(UIViewAnimationOptionCurveEaseInOut)
+                     animations:^{
+                         _Logo.alpha = 1;
+                         
+                         _PlayButton.alpha = 1;
+                         [_PlayButton setFrame:temp];
+                         
+                         _labelHighestCombo.alpha = 1;
+                         
+                         _labelTotalCakes.alpha = 1;
+                         
+                         _labelTotalCoins.alpha = 1;
+                     }
+                     completion:^(BOOL completed) {
+                         NSLog(@"completed");
+                     }];
     
 }
 
@@ -388,6 +406,12 @@ static SplashScreen* _splashScreen = nil;
                          [_PlayButton setFrame:CGRectMake(temp.origin.x + 300, temp.origin.y, temp.size.width, temp.size.height)];
                          
                          _Logo.alpha = 0;
+                         
+                         _labelHighestCombo.alpha = 0;
+                         
+                         _labelTotalCakes.alpha = 0;
+                         
+                         _labelTotalCoins.alpha = 0;
                      }
                      completion:^(BOOL completed) {
                          [self gotoMapScene];
@@ -411,6 +435,8 @@ static SplashScreen* _splashScreen = nil;
     _button_map_warehouse.hidden = NO;
     _button_map_warehouse.alpha = 0;
     
+    [self scrollStory];
+    
     [UIView animateWithDuration:1
                           delay:0
                         options:(UIViewAnimationOptionAllowUserInteraction)
@@ -431,6 +457,22 @@ static SplashScreen* _splashScreen = nil;
 }
 
 #pragma mark - MAP SCENE
+- (void)scrollStory
+{
+    _storyView.hidden = NO;
+    
+    [UIView animateWithDuration:10
+                          delay:0
+                        options:(UIViewAnimationOptionTransitionNone)
+                     animations:^{
+                         _storyView.contentOffset = CGPointMake(0, 500);
+                     }
+                     completion:^(BOOL completed) {
+                         _storyView.hidden = YES;
+                         _storyView.contentOffset = CGPointMake(0, 0);
+                     }];
+}
+
 - (IBAction)onCliffButton:(UIButton *)sender {
     _objectiveView.hidden = NO;
     _mission1.hidden = NO;

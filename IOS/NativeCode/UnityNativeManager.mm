@@ -87,6 +87,7 @@ void UnityPause( bool pause );
 
 - (void)showViewControllerWithName:(NSString*)name
 {
+    NSLog(@"showViewControllerWithName: %@", name);
     NSArray *tempArray = [name componentsSeparatedByString:@"_"];
     [[NSUserDefaults standardUserDefaults] setObject:[tempArray objectAtIndex:1] forKey:[tempArray objectAtIndex:0]];
 

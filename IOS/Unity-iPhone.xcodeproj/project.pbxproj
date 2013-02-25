@@ -54,6 +54,7 @@
 		83B2574F0E63025400468741 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B2574E0E63025400468741 /* libiconv.2.dylib */; };
 		83DEA7430EACED0700D8A291 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83DEA7410EACED0700D8A291 /* Default.png */; };
 		83DEA7440EACED0700D8A291 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83DEA7420EACED0700D8A291 /* Icon.png */; };
+		88169C8E16DB6A4F004AC1F9 /* Vanilla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88169C8D16DB6A4F004AC1F9 /* Vanilla.ttf */; };
 		8851112E16CE3B4F00C74D07 /* UIBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8851110116CE3B4F00C74D07 /* UIBinding.m */; };
 		8851112F16CE3B4F00C74D07 /* UnityNativeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8851110316CE3B4F00C74D07 /* UnityNativeManager.mm */; };
 		8851117016D1DE4100C74D07 /* button_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851115316D1DE4100C74D07 /* button_castle.png */; };
@@ -101,6 +102,7 @@
 		885111DD16D1E56400C74D07 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111DC16D1E56400C74D07 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		885111E116D1E66500C74D07 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111E016D1E66500C74D07 /* CoreData.framework */; };
 		885111E716D1E77800C74D07 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885111E616D1E77800C74D07 /* Twitter.framework */; };
+		88787CA916DB228400170A37 /* SaveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 88787CA816DB228400170A37 /* SaveFile.m */; };
 		88AE44DC16D5CEB800246749 /* Mission1 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44D816D5CEB800246749 /* Mission1 copy.png */; };
 		88AE44DD16D5CEB800246749 /* Mission2 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44D916D5CEB800246749 /* Mission2 copy.png */; };
 		88AE44DE16D5CEB800246749 /* Mission3 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AE44DA16D5CEB800246749 /* Mission3 copy.png */; };
@@ -177,6 +179,7 @@
 		83B2574E0E63025400468741 /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = usr/lib/libiconv.2.dylib; sourceTree = SDKROOT; };
 		83DEA7410EACED0700D8A291 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		83DEA7420EACED0700D8A291 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		88169C8D16DB6A4F004AC1F9 /* Vanilla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vanilla.ttf; sourceTree = "<group>"; };
 		8851110016CE3B4F00C74D07 /* UIBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBinding.h; sourceTree = "<group>"; };
 		8851110116CE3B4F00C74D07 /* UIBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBinding.m; sourceTree = "<group>"; };
 		8851110216CE3B4F00C74D07 /* UnityNativeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityNativeManager.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 		885111E016D1E66500C74D07 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		885111E616D1E77800C74D07 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		885111E816D1E95800C74D07 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		88787CA716DB228400170A37 /* SaveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveFile.h; sourceTree = "<group>"; };
+		88787CA816DB228400170A37 /* SaveFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveFile.m; sourceTree = "<group>"; };
 		88AE44D816D5CEB800246749 /* Mission1 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mission1 copy.png"; path = "Resources/Mission1 copy.png"; sourceTree = "<group>"; };
 		88AE44D916D5CEB800246749 /* Mission2 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mission2 copy.png"; path = "Resources/Mission2 copy.png"; sourceTree = "<group>"; };
 		88AE44DA16D5CEB800246749 /* Mission3 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mission3 copy.png"; path = "Resources/Mission3 copy.png"; sourceTree = "<group>"; };
@@ -413,6 +418,8 @@
 				8851110116CE3B4F00C74D07 /* UIBinding.m */,
 				8851110216CE3B4F00C74D07 /* UnityNativeManager.h */,
 				8851110316CE3B4F00C74D07 /* UnityNativeManager.mm */,
+				88787CA716DB228400170A37 /* SaveFile.h */,
+				88787CA816DB228400170A37 /* SaveFile.m */,
 			);
 			path = NativeCode;
 			sourceTree = "<group>";
@@ -433,6 +440,7 @@
 		8851113216CE3B7A00C74D07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				88169C8D16DB6A4F004AC1F9 /* Vanilla.ttf */,
 				8851115316D1DE4100C74D07 /* button_castle.png */,
 				8851115416D1DE4100C74D07 /* button_cliff.png */,
 				8851115516D1DE4100C74D07 /* button_temple.png */,
@@ -671,6 +679,7 @@
 				88AE44E116D5CF0000246749 /* SplashScreen.xib in Resources */,
 				88AE44F416D5E7A200246749 /* ButtonBack.png in Resources */,
 				88AE44F516D5E7A200246749 /* ButtonBackPressed.png in Resources */,
+				88169C8E16DB6A4F004AC1F9 /* Vanilla.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +755,7 @@
 				885111BA16D1E32F00C74D07 /* FacebookManager.m in Sources */,
 				885111BD16D1E32F00C74D07 /* FacebookVeiwController.m in Sources */,
 				885111CB16D1E48500C74D07 /* CustomAlert.m in Sources */,
+				88787CA916DB228400170A37 /* SaveFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

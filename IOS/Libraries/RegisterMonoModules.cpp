@@ -27,6 +27,10 @@ extern "C"
 	void	_setMP();
 	void	_setCombo();
 	void	_deactivateUI();
+	void	_setCake();
+	void	_setCoin();
+	void	_setTotalTimePlayed();
+	void	_setStageCleared();
 }
 void RegisterMonoModules()
 {
@@ -49,6 +53,10 @@ void RegisterMonoModules()
 	mono_dl_register_symbol("_setMP", (void*)&_setMP);
 	mono_dl_register_symbol("_setCombo", (void*)&_setCombo);
 	mono_dl_register_symbol("_deactivateUI", (void*)&_deactivateUI);
+	mono_dl_register_symbol("_setCake", (void*)&_setCake);
+	mono_dl_register_symbol("_setCoin", (void*)&_setCoin);
+	mono_dl_register_symbol("_setTotalTimePlayed", (void*)&_setTotalTimePlayed);
+	mono_dl_register_symbol("_setStageCleared", (void*)&_setStageCleared);
 #endif // !(TARGET_IPHONE_SIMULATOR)
 }
 

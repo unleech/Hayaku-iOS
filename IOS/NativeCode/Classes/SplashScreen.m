@@ -20,6 +20,8 @@
 
 #import "AppController.h"
 
+#import "SaveFile.h"
+
 @interface SplashScreen ()
 enum eScene
 {
@@ -49,6 +51,10 @@ enum eScene
 @property (retain, nonatomic) IBOutlet UIImageView *mission4;
 @property (retain, nonatomic) IBOutlet UIButton *buttonPlay;
 @property (retain, nonatomic) IBOutlet UIButton *buttonBack;
+@property (retain, nonatomic) IBOutlet UILabel *labelHighestCombo;
+@property (retain, nonatomic) IBOutlet UILabel *labelTotalCakes;
+@property (retain, nonatomic) IBOutlet UILabel *labelTotalCoins;
+@property (retain, nonatomic) IBOutlet UITextView *storyView;
 
 
 - (IBAction)onPlayButton:(UIButton *)sender;
@@ -94,6 +100,10 @@ static SplashScreen* _splashScreen = nil;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [_labelHighestCombo setFont:[UIFont fontWithName:@"Vanilla" size:14]];
+    [_labelTotalCakes setFont:[UIFont fontWithName:@"Vanilla" size:14]];
+    [_labelTotalCoins setFont:[UIFont fontWithName:@"Vanilla" size:14]];
+    
     NSString *tempString = [[NSUserDefaults standardUserDefaults] objectForKey:@"SplashScreen"];
     
     if ([tempString isEqualToString:@"1"]) {
@@ -102,6 +112,7 @@ static SplashScreen* _splashScreen = nil;
     }
     else if ([tempString isEqualToString:@"2"]) {
         //insert loading screen for x seconds... then show menu
+        NSLog(@"2");
         [self performSelector:@selector(gotoMainMenu) withObject:nil afterDelay:0.1f];
     }
     else if ([tempString isEqualToString:@"3"]) {
@@ -137,6 +148,10 @@ static SplashScreen* _splashScreen = nil;
     [_mission4 release];
     [_buttonPlay release];
     [_buttonBack release];
+    [_labelHighestCombo release];
+    [_labelTotalCakes release];
+    [_labelTotalCoins release];
+    [_storyView release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -160,6 +175,10 @@ static SplashScreen* _splashScreen = nil;
     [self setMission4:nil];
     [self setButtonPlay:nil];
     [self setButtonBack:nil];
+    [self setLabelHighestCombo:nil];
+    [self setLabelTotalCakes:nil];
+    [self setLabelTotalCoins:nil];
+    [self setStoryView:nil];
     [super viewDidUnload];
 }
 
@@ -328,27 +347,31 @@ static SplashScreen* _splashScreen = nil;
 
 - (void)gotoMainMenu
 {
+    NSLog(@"gotoMainMenu");
     _loadingView.hidden = YES;
     _mainView.hidden = NO;
     _mainView.alpha = 1;
     
     _Logo.hidden = NO;
-    _Logo.alpha = 0;
+    _Logo.alpha = 1;
     
     _PlayButton.hidden = NO;
-    _PlayButton.alpha = 0;
-    CGRect temp = _PlayButton.frame;
-    [_PlayButton setFrame:CGRectMake(temp.origin.x + 300, temp.origin.y, temp.size.width, temp.size.height)];
-    [UIView animateWithDuration:1
-                          delay:0
-                        options:(UIViewAnimationOptionAllowUserInteraction)
-                     animations:^{
-                         _Logo.alpha = 1;
-                         
-                         _PlayButton.alpha = 1;
-                         [_PlayButton setFrame:temp];
-                     }
-                     completion:^(BOOL completed) {}];
+    _PlayButton.alpha = 1;
+    //buggy
+//    CGRect temp = _PlayButton.frame;
+//    [_PlayButton setFrame:CGRectMake(temp.origin.x + 300, temp.origin.y, temp.size.width, temp.size.height)];
+//    [UIView animateWithDuration:0
+//                          delay:0
+//                        options:(UIViewAnimationOptionCurveEaseInOut)
+//                     animations:^{
+//                         _Logo.alpha = 1;
+//                         
+//                         _PlayButton.alpha = 1;
+//                         //[_PlayButton setFrame:temp];
+//                     }
+//                     completion:^(BOOL completed) {
+//                         NSLog(@"completed");
+//                     }];
     
 }
 
@@ -392,10 +415,17 @@ static SplashScreen* _splashScreen = nil;
                           delay:0
                         options:(UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
-                         _button_map_castle.alpha = 1;
+                         
                          _button_map_cliff.alpha = 1;
-                         _button_map_temple.alpha = 1;
-                         _button_map_warehouse.alpha = 1;
+                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"1"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+                             _button_map_warehouse.alpha = 1;
+                         }
+                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"2"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+                             _button_map_temple.alpha = 1;
+                         }
+                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"3"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+                             _button_map_castle.alpha = 1;
+                         }
                      }
                      completion:^(BOOL completed) {}];
 }
@@ -437,7 +467,7 @@ static SplashScreen* _splashScreen = nil;
         tempString = @"GameScene_4";
     }
     
-    NSString *tempStringCharacter = @"player";
+    NSString *tempStringCharacter = @"Altair";
     
     _objectiveView.hidden = YES;
     _mission1.hidden = YES;

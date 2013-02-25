@@ -18,6 +18,7 @@
 #import "GAI.h"
 #import "Flurry.h"
 #import "Constants.h"
+#import "SaveFile.h"
 
 // USE_DISPLAY_LINK_IF_AVAILABLE
 //
@@ -1097,6 +1098,8 @@ void NotifyAutoOrientationChange()
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [SaveFile loadData];
+    
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.

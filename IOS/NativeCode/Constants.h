@@ -1,4 +1,4 @@
-#warning display highcombo, cakes, coin, total time. save/unlock character, unlock stages dictionary, scrolling text
+#warning save/unlock character, scrolling text
 
 #define RWappName               @"Hayaku"
 

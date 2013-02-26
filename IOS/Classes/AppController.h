@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "FacebookManager.h"
+#import "SaveFile.h"
 
 @interface AppController : NSObject<UIAccelerometerDelegate, UIApplicationDelegate>
 {

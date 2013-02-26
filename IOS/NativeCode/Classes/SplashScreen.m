@@ -32,6 +32,7 @@ enum eScene
 @property (retain, nonatomic) IBOutlet UIImageView *Logo;
 @property (retain, nonatomic) IBOutlet UIButton *PlayButton;
 @property (retain, nonatomic) IBOutlet UIView *mainView;
+@property (retain, nonatomic) IBOutlet UIButton *ToolShopButton;
 
 @property (retain, nonatomic) IBOutlet UIView *mapSceneView;
 @property (retain, nonatomic) IBOutlet UIButton *button_map_cliff;
@@ -54,9 +55,14 @@ enum eScene
 @property (retain, nonatomic) IBOutlet UILabel *labelHighestCombo;
 @property (retain, nonatomic) IBOutlet UILabel *labelTotalCakes;
 @property (retain, nonatomic) IBOutlet UILabel *labelTotalCoins;
-@property (retain, nonatomic) IBOutlet UITextView *storyView;
+@property (retain, nonatomic) IBOutlet UILabel *labelStory;
+@property (retain, nonatomic) IBOutlet UIView *storyView;
+@property (retain, nonatomic) IBOutlet UIView *toolShopView;
+@property (retain, nonatomic) IBOutlet UIButton *toolShopBackButton;
 
+@property (retain, nonatomic) IBOutlet UIButton *changeChar;
 
+- (IBAction)onToolShopButton:(UIButton *)sender;
 - (IBAction)onPlayButton:(UIButton *)sender;
 - (IBAction)onCliffButton:(UIButton *)sender;
 - (IBAction)onWarehouseButton:(UIButton *)sender;
@@ -65,6 +71,7 @@ enum eScene
 - (IBAction)onPlayGame:(UIButton *)sender;
 - (IBAction)onBack:(UIButton *)sender;
 
+- (IBAction)onTestChangeChar:(id)sender;
 
 @end
 
@@ -91,6 +98,8 @@ static SplashScreen* _splashScreen = nil;
         
         AppController *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
         _fbManager = delegate.fbManager;
+        
+        [SaveFile loadData];
     }
     return self;
 }
@@ -99,11 +108,18 @@ static SplashScreen* _splashScreen = nil;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
     
     [_labelHighestCombo setFont:[UIFont fontWithName:@"Vanilla" size:14]];
     [_labelTotalCakes setFont:[UIFont fontWithName:@"Vanilla" size:14]];
     [_labelTotalCoins setFont:[UIFont fontWithName:@"Vanilla" size:14]];
-      
+    [_labelStory setFont:[UIFont fontWithName:@"Vanilla" size:14]];
+    
+    [_toolShopBackButton.titleLabel setFont:[UIFont fontWithName:@"visitor1" size:14]];
+    
+    
+    
+    
     NSString *tempString = [[NSUserDefaults standardUserDefaults] objectForKey:@"SplashScreen"];
     
     if ([tempString isEqualToString:@"1"]) {
@@ -151,7 +167,12 @@ static SplashScreen* _splashScreen = nil;
     [_labelHighestCombo release];
     [_labelTotalCakes release];
     [_labelTotalCoins release];
+    [_labelStory release];
+    [_changeChar release];
     [_storyView release];
+    [_ToolShopButton release];
+    [_toolShopView release];
+    [_toolShopBackButton release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -178,7 +199,12 @@ static SplashScreen* _splashScreen = nil;
     [self setLabelHighestCombo:nil];
     [self setLabelTotalCakes:nil];
     [self setLabelTotalCoins:nil];
+    [self setLabelStory:nil];
+    [self setChangeChar:nil];
     [self setStoryView:nil];
+    [self setToolShopButton:nil];
+    [self setToolShopView:nil];
+    [self setToolShopBackButton:nil];
     [super viewDidUnload];
 }
 
@@ -360,6 +386,9 @@ static SplashScreen* _splashScreen = nil;
     _PlayButton.hidden = NO;
     _PlayButton.alpha = startingOpacity;
     
+    _ToolShopButton.hidden = NO;
+    _ToolShopButton.alpha = startingOpacity;
+    
     _labelHighestCombo.hidden = NO;
     _labelHighestCombo.alpha = startingOpacity;
     
@@ -369,9 +398,22 @@ static SplashScreen* _splashScreen = nil;
     _labelTotalCoins.hidden = NO;
     _labelTotalCoins.alpha = startingOpacity;
     
+    //[SaveFile saveData];
+    
+//    _labelHighestCombo.text = [NSString stringWithFormat:@"Highest Combo: %d",[SaveFile sharedFile].highestCombo];
+//    _labelTotalCakes.text = [NSString stringWithFormat:@"Total Cakes: %d",[SaveFile sharedFile].totalCakes];
+//    _labelTotalCoins.text = [NSString stringWithFormat:@"Total Coins: %d",[SaveFile sharedFile].totalCoins];
+
+    _labelHighestCombo.text = [NSString stringWithFormat:@"Highest Combo: %d",[[NSUserDefaults standardUserDefaults] integerForKey:@"highestCombo"]];
+    _labelTotalCakes.text = [NSString stringWithFormat:@"Total Cakes: %d",[[NSUserDefaults standardUserDefaults] integerForKey:@"totalCakes"]];
+    _labelTotalCoins.text = [NSString stringWithFormat:@"Total Coins: %d",[[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"]];
+
+    
     //buggy
     CGRect temp = _PlayButton.frame;
     [_PlayButton setFrame:CGRectMake(temp.origin.x + 300, temp.origin.y, temp.size.width, temp.size.height)];
+    CGRect temp2 = _ToolShopButton.frame;
+    [_ToolShopButton setFrame:CGRectMake(temp2.origin.x + 600, temp2.origin.y, temp2.size.width, temp2.size.height)];
     [UIView animateWithDuration:1
                           delay:0
                         options:(UIViewAnimationOptionCurveEaseInOut)
@@ -380,6 +422,9 @@ static SplashScreen* _splashScreen = nil;
                          
                          _PlayButton.alpha = 1;
                          [_PlayButton setFrame:temp];
+                         
+                         _ToolShopButton.alpha = 1;
+                         [_ToolShopButton setFrame:temp2];
                          
                          _labelHighestCombo.alpha = 1;
                          
@@ -395,15 +440,49 @@ static SplashScreen* _splashScreen = nil;
 
 
 #pragma mark - MAIN MENU
-- (IBAction)onPlayButton:(UIButton *)sender {
-    
+- (IBAction)onToolShopButton:(id)sender {
     CGRect temp = _PlayButton.frame;
+    CGRect temp2 = _ToolShopButton.frame;
     [UIView animateWithDuration:1
                           delay:0
                         options:(UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
                          _PlayButton.alpha = 0;
                          [_PlayButton setFrame:CGRectMake(temp.origin.x + 300, temp.origin.y, temp.size.width, temp.size.height)];
+                         
+                         _ToolShopButton.alpha = 0;
+                         [_ToolShopButton setFrame:CGRectMake(temp2.origin.x + 600, temp2.origin.y, temp2.size.width, temp2.size.height)];
+                         
+                         _Logo.alpha = 0;
+                         
+                         _labelHighestCombo.alpha = 0;
+                         
+                         _labelTotalCakes.alpha = 0;
+                         
+                         _labelTotalCoins.alpha = 0;
+                     }
+                     completion:^(BOOL completed) {
+                         [self gotoToolShop];
+                         [_PlayButton setFrame:CGRectMake(temp.origin.x, temp.origin.y, temp.size.width, temp.size.height)];
+                         [_ToolShopButton setFrame:CGRectMake(temp2.origin.x, temp2.origin.y, temp2.size.width, temp2.size.height)];
+                     }];
+
+
+}
+
+- (IBAction)onPlayButton:(UIButton *)sender {
+    
+    CGRect temp = _PlayButton.frame;
+    CGRect temp2 = _ToolShopButton.frame;
+    [UIView animateWithDuration:1
+                          delay:0
+                        options:(UIViewAnimationOptionAllowUserInteraction)
+                     animations:^{
+                         _PlayButton.alpha = 0;
+                         [_PlayButton setFrame:CGRectMake(temp.origin.x + 600, temp.origin.y, temp.size.width, temp.size.height)];
+                         
+                         _ToolShopButton.alpha = 0;
+                         [_ToolShopButton setFrame:CGRectMake(temp2.origin.x + 300, temp2.origin.y, temp2.size.width, temp2.size.height)];
                          
                          _Logo.alpha = 0;
                          
@@ -416,13 +495,16 @@ static SplashScreen* _splashScreen = nil;
                      completion:^(BOOL completed) {
                          [self gotoMapScene];
                          [_PlayButton setFrame:CGRectMake(temp.origin.x, temp.origin.y, temp.size.width, temp.size.height)];
+                         [_ToolShopButton setFrame:CGRectMake(temp2.origin.x, temp2.origin.y, temp2.size.width, temp2.size.height)];
                      }];
     
 }
 
 - (void) gotoMapScene
 {
+    _loadingView.hidden = YES;
     _mainView.hidden = NO;
+    _mainView.alpha = 1;
     _mapSceneView.hidden = NO;
     _mapSceneView.alpha = 1;
     
@@ -443,15 +525,26 @@ static SplashScreen* _splashScreen = nil;
                      animations:^{
                          
                          _button_map_cliff.alpha = 1;
-                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"1"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+//                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"1"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+//                             _button_map_warehouse.alpha = 1;
+//                         }
+//                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"2"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+//                             _button_map_temple.alpha = 1;
+//                         }
+//                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"3"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+//                             _button_map_castle.alpha = 1;
+//                         }
+                         
+                         if ([[[[[NSUserDefaults standardUserDefaults] objectForKey:@"listStages"] objectForKey:@"1"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
                              _button_map_warehouse.alpha = 1;
                          }
-                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"2"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+                         if ([[[[[NSUserDefaults standardUserDefaults] objectForKey:@"listStages"] objectForKey:@"2"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
                              _button_map_temple.alpha = 1;
                          }
-                         if ([[[[SaveFile sharedFile].listStages objectForKey:@"3"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+                         if ([[[[[NSUserDefaults standardUserDefaults] objectForKey:@"listStages"] objectForKey:@"3"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
                              _button_map_castle.alpha = 1;
                          }
+                    
                      }
                      completion:^(BOOL completed) {}];
 }
@@ -459,17 +552,21 @@ static SplashScreen* _splashScreen = nil;
 #pragma mark - MAP SCENE
 - (void)scrollStory
 {
+    if ([[[[[NSUserDefaults standardUserDefaults] objectForKey:@"listStages"] objectForKey:@"1"] objectForKey:@"cleared"] isEqualToString:@"1"]) {
+        return;
+    }
     _storyView.hidden = NO;
+    _labelStory.hidden = NO;
+
     
     [UIView animateWithDuration:10
-                          delay:0
-                        options:(UIViewAnimationOptionTransitionNone)
-                     animations:^{
-                         _storyView.contentOffset = CGPointMake(0, 500);
+                     animations:^{ //350 //-640
+                         _labelStory.frame = CGRectMake(_labelStory.frame.origin.x, _labelStory.frame.origin.y - 990, _labelStory.frame.size.width, _labelStory.frame.size.height);
                      }
                      completion:^(BOOL completed) {
                          _storyView.hidden = YES;
-                         _storyView.contentOffset = CGPointMake(0, 0);
+                         _labelStory.hidden = YES;
+                         _labelStory.frame = CGRectMake(_labelStory.frame.origin.x, _labelStory.frame.origin.y + 990, _labelStory.frame.size.width, _labelStory.frame.size.height);
                      }];
 }
 
@@ -509,7 +606,11 @@ static SplashScreen* _splashScreen = nil;
         tempString = @"GameScene_4";
     }
     
-    NSString *tempStringCharacter = @"Altair";
+//    NSString *tempStringCharacter = [[SaveFile sharedFile].listCharacters objectForKey:@"selectedCharacter"];
+    NSString *tempStringCharacter = [[[NSUserDefaults standardUserDefaults] objectForKey:@"listCharacters"] objectForKey:@"selectedCharacter"];
+    if (!tempStringCharacter || [tempStringCharacter isEqualToString:@""]) {
+        tempStringCharacter = @"Yaku";
+    }
     
     _objectiveView.hidden = YES;
     _mission1.hidden = YES;
@@ -528,6 +629,7 @@ static SplashScreen* _splashScreen = nil;
     
     if (_objectiveView.hidden) {
         _mapSceneView.hidden = YES;
+        _toolShopView.hidden = YES;
         [self gotoMainMenu];
     }
     else {
@@ -537,6 +639,27 @@ static SplashScreen* _splashScreen = nil;
         _mission3.hidden = YES;
         _mission4.hidden = YES;
     }
+}
+
+- (IBAction)onTestChangeChar:(id)sender {
+    if (_changeChar.selected) {
+        _changeChar.selected = NO;
+//        [[SaveFile sharedFile].listCharacters setObject:@"Altair" forKey:@"selectedCharacter"];
+        [[NSUserDefaults standardUserDefaults] setObject:@{@"selectedCharacter" : @"Altair"} forKey:@"listCharacters"];
+        
+    }
+    else {
+        _changeChar.selected = YES;
+//        [[SaveFile sharedFile].listCharacters setObject:@"Yaku" forKey:@"selectedCharacter"];
+        [[NSUserDefaults standardUserDefaults] setObject:@{@"selectedCharacter" : @"Yaku"} forKey:@"listCharacters"];
+    }
+
+}
+
+#pragma mark - ToolShop
+- (void)gotoToolShop
+{
+    _toolShopView.hidden = NO;
 }
 
 

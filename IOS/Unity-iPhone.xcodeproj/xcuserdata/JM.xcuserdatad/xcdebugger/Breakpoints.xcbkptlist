@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NativeCode/Classes/SplashScreen.m"
-         timestampString = "383483044.884371"
+         timestampString = "383566559.449899"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "-initWithNibName:bundle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NativeCode/Classes/SplashScreen.m"
-         timestampString = "383483044.884371"
+         timestampString = "383566559.449899"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>

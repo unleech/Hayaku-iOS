@@ -43,10 +43,7 @@
     [_labelCostume setFont:[UIFont fontWithName:@"Visitor TT1 BRK" size:11]];
     [_labelBuff setFont:[UIFont fontWithName:@"Visitor TT1 BRK" size:11]];
     
-    
-    _labelCakes.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCakes"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCakes"]];
-    _labelCoins.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCoins"]];
-    
+    [_costumesButton setSelected:YES];
     
     [self reloadShop];
 }
@@ -113,35 +110,37 @@
     }
     
     // Configure the cell...
-    NSDictionary *tempDict = [containerCostumes objectAtIndex:indexPath.row];
-    cell.costumeName.text = [tempDict objectForKey:@"costume"];
-    cell.buff.text = [tempDict objectForKey:@"buff"];
-    cell.cost.text = [tempDict objectForKey:@"cost"];
-    [cell.portrait setImage:[UIImage imageNamed:[tempDict objectForKey:@"image"]]];
-    
-    if ([[tempDict objectForKey:@"costIcon"] isEqualToString:@"Cake"]) {
-        [cell.costIcon setImage:[UIImage imageNamed:@"HudCakeIndicator.png"]];
-    }
-    else {
-        [cell.costIcon setImage:[UIImage imageNamed:@"HudCoinIndicator.png"]];
-    }
-    
-    if ([[tempDict objectForKey:@"purchased"] boolValue]) {
-        if ([[tempDict objectForKey:@"equipped"] boolValue]) {
-            _labelCostume.text = [tempDict objectForKey:@"costume"];
-            _labelBuff.text = [tempDict objectForKey:@"buff"];
-            [_imageChar setImage:[UIImage imageNamed:[tempDict objectForKey:@"image"]]];
-            [cell.equipButton setTitle:@"Unequip" forState:UIControlStateNormal];
+    if (_costumesButton.selected) {
+        NSDictionary *tempDict = [containerCostumes objectAtIndex:indexPath.row];
+        cell.costumeName.text = [tempDict objectForKey:@"costume"];
+        cell.buff.text = [tempDict objectForKey:@"buff"];
+        cell.cost.text = [tempDict objectForKey:@"cost"];
+        [cell.portrait setImage:[UIImage imageNamed:[tempDict objectForKey:@"image"]]];
+        
+        if ([[tempDict objectForKey:@"costIcon"] isEqualToString:@"Cake"]) {
+            [cell.costIcon setImage:[UIImage imageNamed:@"HudCakeIndicator.png"]];
         }
         else {
-            [cell.equipButton setTitle:@"Equip" forState:UIControlStateNormal];
+            [cell.costIcon setImage:[UIImage imageNamed:@"HudCoinIndicator.png"]];
         }
+        
+        if ([[tempDict objectForKey:@"purchased"] boolValue]) {
+            if ([[tempDict objectForKey:@"equipped"] boolValue]) {
+                _labelCostume.text = [tempDict objectForKey:@"costume"];
+                _labelBuff.text = [tempDict objectForKey:@"buff"];
+                [_imageChar setImage:[UIImage imageNamed:[tempDict objectForKey:@"image"]]];
+                [cell.equipButton setTitle:@"Unequip" forState:UIControlStateNormal];
+            }
+            else {
+                [cell.equipButton setTitle:@"Equip" forState:UIControlStateNormal];
+            }
+        }
+        else {
+            [cell.equipButton setTitle:@"Buy" forState:UIControlStateNormal];
+        }
+        [cell.equipButton addTarget:self action:@selector(onEquipButton:) forControlEvents:UIControlEventTouchUpInside];
+        cell.equipButton.tag = indexPath.row;
     }
-    else {
-        [cell.equipButton setTitle:@"Buy" forState:UIControlStateNormal];
-    }
-    [cell.equipButton addTarget:self action:@selector(onEquipButton:) forControlEvents:UIControlEventTouchUpInside];
-    cell.equipButton.tag = indexPath.row;
     
     
     return cell;
@@ -208,12 +207,27 @@
 }
 
 - (IBAction)onCostumesbutton:(UIButton *)sender {
+    _costumesButton.selected = YES;
+    _utilitiesButton.selected = NO;
+    _moreButton.selected = NO;
+    
+    [self reloadShop];
 }
 
 - (IBAction)onUtilitiesButton:(UIButton *)sender {
+    _costumesButton.selected = NO;
+    _utilitiesButton.selected = YES;
+    _moreButton.selected = NO;
+    
+    [self reloadShop];
 }
 
 - (IBAction)onMoreButton:(UIButton *)sender {
+    _costumesButton.selected = NO;
+    _utilitiesButton.selected = NO;
+    _moreButton.selected = YES;
+    
+    [self reloadShop];
 }
 
 #pragma mark -
@@ -221,7 +235,7 @@
 {
     NSMutableDictionary *listCostume = [containerCostumes objectAtIndex:sender.tag];
     
-    if ([listCostume objectForKey:@"purchased"]) {
+    if ([[listCostume objectForKey:@"purchased"] boolValue]) {
         if ([[listCostume objectForKey:@"equipped"] boolValue]) {
             //unequip
         }
@@ -233,12 +247,13 @@
     }
     else {
         //purchase
+        [self buy:listCostume];
     }
     
-    NSMutableDictionary *tempMDict = [[NSMutableDictionary alloc] initWithDictionary:listToolShop];
-    [tempMDict setObject:listCostume forKey:@"Costumes"];
     //write to file
+    [self saveData:listCostume sender:sender];
     //reloadShop
+    [self reloadShop];
 }
 
 - (void)equip:(NSMutableDictionary *)listCostume
@@ -248,18 +263,83 @@
     }
 
     [listCostume setObject:@"YES" forKey:@"equipped"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@{@"selectedCharacter" : [listCostume objectForKey:@"image"]} forKey:@"listCharacters"];
+}
+
+- (void)buy:(NSMutableDictionary *)listCostume
+{
+    int totalMoney = 0;
+    int totalSpent = 0;
+    int cost = [[listCostume objectForKey:@"cost"] intValue];
+    
+    if ([[listCostume objectForKey:@"costIcon"] isEqualToString:@"Cake"]) {
+        totalMoney = [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCakes"];
+        totalSpent = [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCakes"];
+        
+        if (cost <= totalMoney - totalSpent) {
+            [[NSUserDefaults standardUserDefaults] setInteger:totalSpent+cost forKey:@"spentCakes"];
+            [listCostume setObject:@"YES" forKey:@"purchased"];
+        }
+        else {
+            //not enough
+            NSLog(@"alert not enough cake");
+        }
+    }
+    else {
+        totalMoney = [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"];
+        totalSpent = [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCoins"];
+
+        if (cost <= totalMoney - totalSpent) {
+            [[NSUserDefaults standardUserDefaults] setInteger:totalSpent+cost forKey:@"spentCoins"];
+            [listCostume setObject:@"YES" forKey:@"purchased"];
+        }
+        else {
+            //not enough
+            NSLog(@"alert not enough coin");
+        }
+    }
+    
+    
+}
+
+- (void)saveData:(NSMutableDictionary *)listCostume sender:(UIButton *)sender
+{
+    NSMutableDictionary *tempMDict = [[NSMutableDictionary alloc] initWithDictionary:listToolShop];
+    NSMutableArray *tempArray = [tempMDict objectForKey:@"Costumes"];
+    [tempArray replaceObjectAtIndex:sender.tag withObject:listCostume];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectoryPath
+                      stringByAppendingPathComponent:@"ToolShop.plist"];
+
+    [tempMDict writeToFile:path atomically: YES];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)reloadShop
 {
+    _labelCakes.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCakes"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCakes"]];
+    _labelCoins.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCoins"]];
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [paths objectAtIndex:0];
     NSString *path = [documentsDirectoryPath
                       stringByAppendingPathComponent:@"ToolShop.plist"];
     
-    listToolShop =  [[NSDictionary dictionaryWithContentsOfFile:path] retain];
-    containerCostumes = [listToolShop objectForKey:@"Costumes"];
+    if (_costumesButton.selected) {
+        listToolShop =  [[NSDictionary dictionaryWithContentsOfFile:path] retain];
+        containerCostumes = [listToolShop objectForKey:@"Costumes"];
+    }
+    else {
+        listToolShop = nil;
+        containerCostumes = nil;
+    }
     
     [_tableView reloadData];
 }

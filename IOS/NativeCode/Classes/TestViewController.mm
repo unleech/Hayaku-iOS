@@ -25,7 +25,6 @@ void UnityPause( bool pause );
     return self;
 }
 
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

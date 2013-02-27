@@ -131,10 +131,10 @@ void UnityPause( bool pause );
 	UIWindow *window = [UIApplication sharedApplication].keyWindow;
 	
 	// If we are landscape, manually rotate our view
-	if( [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft )
-		controller.view.transform = CGAffineTransformMakeRotation( -1.5708 );
-	else if( [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight )
-		controller.view.transform = CGAffineTransformMakeRotation( 1.5708 );
+//	if( [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft )
+//		controller.view.transform = CGAffineTransformMakeRotation( -1.5708 );
+//	else if( [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight )
+//		controller.view.transform = CGAffineTransformMakeRotation( 1.5708 );
 	
 	// Set up the fade-in animation
     CATransition *animation = [CATransition animation];

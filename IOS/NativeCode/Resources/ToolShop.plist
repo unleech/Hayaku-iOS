@@ -10,7 +10,7 @@
 			<key>purchased</key>
 			<true/>
 			<key>image</key>
-			<string>yaku.png</string>
+			<string>Yaku</string>
 			<key>costIcon</key>
 			<string>Cake</string>
 			<key>cost</key>
@@ -26,7 +26,7 @@
 			<key>purchased</key>
 			<false/>
 			<key>image</key>
-			<string>altair.png</string>
+			<string>Altair</string>
 			<key>costIcon</key>
 			<string>Coin</string>
 			<key>cost</key>

@@ -24,6 +24,8 @@
 
 #import "ToolShopScreen.h"
 
+#import "TestViewController.h" //fix rotation
+
 @interface SplashScreen ()
 enum eScene
 {
@@ -112,7 +114,7 @@ static SplashScreen* _splashScreen = nil;
         AppController *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
         _fbManager = delegate.fbManager;
         
-        [SaveFile loadData];
+//        [SaveFile loadData];
     }
     return self;
 }
@@ -121,7 +123,13 @@ static SplashScreen* _splashScreen = nil;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
+    
+    //rotation fix, so no manual rotation needed in unitynativemanager. :)
+    TestViewController *testFix = [[TestViewController alloc] init];
+    [self presentModalViewController:testFix animated:NO];
+    [testFix dismissModalViewControllerAnimated:NO];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [_labelHighestCombo setFont:[UIFont fontWithName:@"Vanilla" size:14]];
     [_labelTotalCakes setFont:[UIFont fontWithName:@"Vanilla" size:14]];

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1536</int>
-		<string key="IBDocument.SystemVersion">11G63</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2840</string>
-		<string key="IBDocument.AppKitVersion">1138.51</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<int key="IBDocument.SystemTarget">1552</int>
+		<string key="IBDocument.SystemVersion">12C3103</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1926</string>
+			<string key="NS.object.0">2083</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -92,7 +92,7 @@
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUINormalTitle">BACK</string>
-								<object class="NSColor" key="IBUIHighlightedTitleColor">
+								<object class="NSColor" key="IBUIHighlightedTitleColor" id="967066229">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
@@ -138,22 +138,14 @@
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUINormalTitle">Costumes</string>
-								<object class="NSColor" key="IBUIHighlightedTitleColor">
+								<reference key="IBUIHighlightedTitleColor" ref="967066229"/>
+								<reference key="IBUISelectedTitleColor" ref="967066229"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC43NQA</bytes>
 									<object class="NSColorSpace" key="NSCustomColorSpace" id="797136651">
 										<int key="NSID">2</int>
 									</object>
-								</object>
-								<object class="NSColor" key="IBUISelectedTitleColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC43NQA</bytes>
-									<reference key="NSCustomColorSpace" ref="797136651"/>
-								</object>
-								<object class="NSColor" key="IBUINormalTitleColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC43NQA</bytes>
-									<reference key="NSCustomColorSpace" ref="797136651"/>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="73667508"/>
 								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="616273029">
@@ -389,7 +381,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">yaku.png</string>
+									<string key="NSResourceName">Yaku</string>
 								</object>
 							</object>
 						</array>
@@ -723,11 +715,11 @@
 				<string key="189.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="190.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="191.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="191.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="191.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="192.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="192.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="2" key="192.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="193.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="193.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="193.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="194.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="195.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="196.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -777,6 +769,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="backButton">UIButton</string>
 						<string key="costumesButton">UIButton</string>
+						<string key="imageChar">UIImageView</string>
 						<string key="labelBuff">UILabel</string>
 						<string key="labelCakes">UILabel</string>
 						<string key="labelCoins">UILabel</string>
@@ -794,6 +787,10 @@
 						<object class="IBToOneOutletInfo" key="costumesButton">
 							<string key="name">costumesButton</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="imageChar">
+							<string key="name">imageChar</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="labelBuff">
 							<string key="name">labelBuff</string>
@@ -841,12 +838,12 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="BG_toolshop.png">{960, 576}</string>
+			<string key="Yaku">{475, 691}</string>
 			<string key="button.png">{209, 98}</string>
 			<string key="buttonpressed.png">{205, 93}</string>
 			<string key="toolshop_pic.png">{151, 151}</string>
 			<string key="toolshop_tab.png">{264, 106}</string>
-			<string key="yaku.png">{475, 691}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">1926</string>
+		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

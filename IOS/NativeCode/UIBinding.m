@@ -33,7 +33,6 @@ void _setCombo( int count)
 
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"highestCombo"] < count) {
         [[NSUserDefaults standardUserDefaults] setInteger:count forKey:@"highestCombo"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
     [[SplashScreen sharedInstance] setCombo:count];

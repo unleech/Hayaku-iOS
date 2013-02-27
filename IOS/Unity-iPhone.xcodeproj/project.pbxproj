@@ -69,8 +69,8 @@
 		8831626216DDBA71002CF260 /* ToolShopScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8831626016DDBA70002CF260 /* ToolShopScreen.m */; };
 		8831626316DDBA71002CF260 /* ToolShopScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8831626116DDBA70002CF260 /* ToolShopScreen.xib */; };
 		8831626D16DDE5D0002CF260 /* CustomLabelFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 8831626C16DDE5D0002CF260 /* CustomLabelFont.m */; };
-		8831627016DDEC70002CF260 /* altair.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831626E16DDEC70002CF260 /* altair.png */; };
-		8831627116DDEC70002CF260 /* yaku.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831626F16DDEC70002CF260 /* yaku.png */; };
+		8831627016DDEC70002CF260 /* Altair in Resources */ = {isa = PBXBuildFile; fileRef = 8831626E16DDEC70002CF260 /* Altair */; };
+		8831627116DDEC70002CF260 /* Yaku in Resources */ = {isa = PBXBuildFile; fileRef = 8831626F16DDEC70002CF260 /* Yaku */; };
 		8831627316DDEDC4002CF260 /* ToolShop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8831627216DDEDC4002CF260 /* ToolShop.plist */; };
 		8831627616DE0412002CF260 /* HudCakeIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831627416DE0410002CF260 /* HudCakeIndicator.png */; };
 		8831627716DE0412002CF260 /* HudCoinIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831627516DE0411002CF260 /* HudCoinIndicator.png */; };
@@ -217,8 +217,8 @@
 		8831626116DDBA70002CF260 /* ToolShopScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolShopScreen.xib; sourceTree = "<group>"; };
 		8831626B16DDE5D0002CF260 /* CustomLabelFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabelFont.h; sourceTree = "<group>"; };
 		8831626C16DDE5D0002CF260 /* CustomLabelFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabelFont.m; sourceTree = "<group>"; };
-		8831626E16DDEC70002CF260 /* altair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = altair.png; sourceTree = "<group>"; };
-		8831626F16DDEC70002CF260 /* yaku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yaku.png; sourceTree = "<group>"; };
+		8831626E16DDEC70002CF260 /* Altair */ = {isa = PBXFileReference; lastKnownFileType = file; path = Altair; sourceTree = "<group>"; };
+		8831626F16DDEC70002CF260 /* Yaku */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yaku; sourceTree = "<group>"; };
 		8831627216DDEDC4002CF260 /* ToolShop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ToolShop.plist; path = NativeCode/Resources/ToolShop.plist; sourceTree = SOURCE_ROOT; };
 		8831627416DE0410002CF260 /* HudCakeIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HudCakeIndicator.png; sourceTree = "<group>"; };
 		8831627516DE0411002CF260 /* HudCoinIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HudCoinIndicator.png; sourceTree = "<group>"; };
@@ -308,18 +308,18 @@
 		D82DCFBC0E8000A5005D6AD8 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Classes/MainWindow.xib; sourceTree = SOURCE_ROOT; };
 		D82DCFBD0E8000A5005D6AD8 /* RegisterClasses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RegisterClasses.cpp; path = Classes/RegisterClasses.cpp; sourceTree = SOURCE_ROOT; };
 		D82DCFBE0E8000A5005D6AD8 /* RegisterClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterClasses.h; path = Classes/RegisterClasses.h; sourceTree = SOURCE_ROOT; };
-		D8A1C7000E80637F100160D4 /* Assembly-CSharp-firstpass.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = Assembly-CSharp-firstpass.dll.s; path = Libraries/Assembly-CSharp-firstpass.dll.s; sourceTree = SOURCE_ROOT; };
-		D8A1C7001E80637F100160D4 /* Assembly-CSharp.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = Assembly-CSharp.dll.s; path = Libraries/Assembly-CSharp.dll.s; sourceTree = SOURCE_ROOT; };
-		D8A1C7002E80637F100160D4 /* Assembly-UnityScript-firstpass.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = Assembly-UnityScript-firstpass.dll.s; path = Libraries/Assembly-UnityScript-firstpass.dll.s; sourceTree = SOURCE_ROOT; };
-		D8A1C7003E80637F100160D4 /* Assembly-UnityScript.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = Assembly-UnityScript.dll.s; path = Libraries/Assembly-UnityScript.dll.s; sourceTree = SOURCE_ROOT; };
+		D8A1C7000E80637F100160D4 /* Assembly-CSharp-firstpass.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "Assembly-CSharp-firstpass.dll.s"; path = "Libraries/Assembly-CSharp-firstpass.dll.s"; sourceTree = SOURCE_ROOT; };
+		D8A1C7001E80637F100160D4 /* Assembly-CSharp.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "Assembly-CSharp.dll.s"; path = "Libraries/Assembly-CSharp.dll.s"; sourceTree = SOURCE_ROOT; };
+		D8A1C7002E80637F100160D4 /* Assembly-UnityScript-firstpass.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "Assembly-UnityScript-firstpass.dll.s"; path = "Libraries/Assembly-UnityScript-firstpass.dll.s"; sourceTree = SOURCE_ROOT; };
+		D8A1C7003E80637F100160D4 /* Assembly-UnityScript.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "Assembly-UnityScript.dll.s"; path = "Libraries/Assembly-UnityScript.dll.s"; sourceTree = SOURCE_ROOT; };
 		D8A1C7004E80637F100160D4 /* Boo.Lang.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = Boo.Lang.dll.s; path = Libraries/Boo.Lang.dll.s; sourceTree = SOURCE_ROOT; };
 		D8A1C7005E80637F100160D4 /* Mono.Security.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = Mono.Security.dll.s; path = Libraries/Mono.Security.dll.s; sourceTree = SOURCE_ROOT; };
 		D8A1C7006E80637F100160D4 /* System.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = System.dll.s; path = Libraries/System.dll.s; sourceTree = SOURCE_ROOT; };
 		D8A1C7007E80637F100160D4 /* UnityEngine.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = UnityEngine.dll.s; path = Libraries/UnityEngine.dll.s; sourceTree = SOURCE_ROOT; };
 		D8A1C7008E80637F100160D4 /* mscorlib.dll.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = mscorlib.dll.s; path = Libraries/mscorlib.dll.s; sourceTree = SOURCE_ROOT; };
-		D8A1C7009E80637F100160D4 /* Icon@2x.png */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
-		D8A1C700aE80637F100160D4 /* Default@2x.png */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
-		D8A1C700bE80637F100160D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		D8A1C7009E80637F100160D4 /* Icon@2x.png */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		D8A1C700aE80637F100160D4 /* Default@2x.png */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		D8A1C700bE80637F100160D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		D8A1C7240E80637F000160D3 /* RegisterMonoModules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RegisterMonoModules.cpp; path = Libraries/RegisterMonoModules.cpp; sourceTree = SOURCE_ROOT; };
 		D8A1C7250E80637F000160D3 /* RegisterMonoModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterMonoModules.h; path = Libraries/RegisterMonoModules.h; sourceTree = SOURCE_ROOT; };
 		D8A1C72A0E8063A1000160D3 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libiPhone-lib.a"; path = "Libraries/libiPhone-lib.a"; sourceTree = SOURCE_ROOT; };
@@ -488,8 +488,8 @@
 			isa = PBXGroup;
 			children = (
 				8831627216DDEDC4002CF260 /* ToolShop.plist */,
-				8831626E16DDEC70002CF260 /* altair.png */,
-				8831626F16DDEC70002CF260 /* yaku.png */,
+				8831626E16DDEC70002CF260 /* Altair */,
+				8831626F16DDEC70002CF260 /* Yaku */,
 				8831624416DCAFD5002CF260 /* ButtonToolShop.png */,
 				8831624516DCAFD5002CF260 /* ButtonToolShopPressed.png */,
 				8831623F16DCAE60002CF260 /* toolshop_scrollbar.png */,
@@ -759,8 +759,8 @@
 				8831624616DCAFD5002CF260 /* ButtonToolShop.png in Resources */,
 				8831624716DCAFD5002CF260 /* ButtonToolShopPressed.png in Resources */,
 				8831626316DDBA71002CF260 /* ToolShopScreen.xib in Resources */,
-				8831627016DDEC70002CF260 /* altair.png in Resources */,
-				8831627116DDEC70002CF260 /* yaku.png in Resources */,
+				8831627016DDEC70002CF260 /* Altair in Resources */,
+				8831627116DDEC70002CF260 /* Yaku in Resources */,
 				8831627316DDEDC4002CF260 /* ToolShop.plist in Resources */,
 				8831627616DE0412002CF260 /* HudCakeIndicator.png in Resources */,
 				8831627716DE0412002CF260 /* HudCoinIndicator.png in Resources */,
@@ -902,7 +902,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -944,7 +944,7 @@
 				PROVISIONING_PROFILE = "60E1D75B-0D88-4B6A-87B4-9CA3043137D4";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60E1D75B-0D88-4B6A-87B4-9CA3043137D4";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -970,7 +970,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = Hayaku;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -997,7 +997,7 @@
 				);
 				PRODUCT_NAME = Hayaku;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};

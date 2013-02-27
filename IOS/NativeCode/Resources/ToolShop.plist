@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Costumes</key>
+	<array>
+		<dict>
+			<key>equipped</key>
+			<true/>
+			<key>purchased</key>
+			<true/>
+			<key>image</key>
+			<string>yaku.png</string>
+			<key>costIcon</key>
+			<string>Cake</string>
+			<key>cost</key>
+			<string>FREE</string>
+			<key>buff</key>
+			<string>SPD NORMAL</string>
+			<key>costume</key>
+			<string>Yaku</string>
+		</dict>
+		<dict>
+			<key>equipped</key>
+			<false/>
+			<key>purchased</key>
+			<false/>
+			<key>image</key>
+			<string>altair.png</string>
+			<key>costIcon</key>
+			<string>Coin</string>
+			<key>cost</key>
+			<string>100</string>
+			<key>buff</key>
+			<string>SPD +30%</string>
+			<key>costume</key>
+			<string>Assassin&apos;s Costume</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -22,5 +22,6 @@
 - (void)setHP:(int) count;
 - (void)setMP:(int) count;
 - (void)setCombo:(int) count;
+- (void)gotoMainMenu;
 
 @end

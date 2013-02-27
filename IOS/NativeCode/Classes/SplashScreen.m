@@ -22,6 +22,8 @@
 
 #import "SaveFile.h"
 
+#import "ToolShopScreen.h"
+
 @interface SplashScreen ()
 enum eScene
 {
@@ -57,8 +59,10 @@ enum eScene
 @property (retain, nonatomic) IBOutlet UILabel *labelTotalCoins;
 @property (retain, nonatomic) IBOutlet UILabel *labelStory;
 @property (retain, nonatomic) IBOutlet UIView *storyView;
+
 @property (retain, nonatomic) IBOutlet UIView *toolShopView;
 @property (retain, nonatomic) IBOutlet UIButton *toolShopBackButton;
+@property (retain, nonatomic) IBOutlet UITableView *toolShopTable;
 
 @property (retain, nonatomic) IBOutlet UIButton *changeChar;
 
@@ -85,6 +89,15 @@ static SplashScreen* _splashScreen = nil;
 	{
 		
 		_splashScreen = [[self alloc] initWithNibName:nil bundle:nil];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+        NSString *filePath = [documentsDirectoryPath
+                              stringByAppendingPathComponent:@"ToolShop.plist"];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]] writeToFile:filePath atomically: YES];    
+        }
 	}
 	
 	return _splashScreen;
@@ -173,6 +186,7 @@ static SplashScreen* _splashScreen = nil;
     [_ToolShopButton release];
     [_toolShopView release];
     [_toolShopBackButton release];
+    [_toolShopTable release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -205,6 +219,7 @@ static SplashScreen* _splashScreen = nil;
     [self setToolShopButton:nil];
     [self setToolShopView:nil];
     [self setToolShopBackButton:nil];
+    [self setToolShopTable:nil];
     [super viewDidUnload];
 }
 
@@ -369,8 +384,6 @@ static SplashScreen* _splashScreen = nil;
     }
 }
 
-#pragma mark - Main Menu
-
 - (void)gotoMainMenu
 {
     NSLog(@"gotoMainMenu");
@@ -497,7 +510,7 @@ static SplashScreen* _splashScreen = nil;
                          [_PlayButton setFrame:CGRectMake(temp.origin.x, temp.origin.y, temp.size.width, temp.size.height)];
                          [_ToolShopButton setFrame:CGRectMake(temp2.origin.x, temp2.origin.y, temp2.size.width, temp2.size.height)];
                      }];
-    
+
 }
 
 - (void) gotoMapScene
@@ -659,8 +672,11 @@ static SplashScreen* _splashScreen = nil;
 #pragma mark - ToolShop
 - (void)gotoToolShop
 {
-    _toolShopView.hidden = NO;
+//    _toolShopView.hidden = NO;
+    ToolShopScreen *toolShop = [[ToolShopScreen alloc] init];
+    [self presentModalViewController:toolShop animated:NO];
 }
+
 
 
 #pragma mark - SOCIAL FB

@@ -66,6 +66,14 @@
 		8831624316DCAF2E002CF260 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8831624216DCAF2E002CF260 /* CustomCell.m */; };
 		8831624616DCAFD5002CF260 /* ButtonToolShop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831624416DCAFD5002CF260 /* ButtonToolShop.png */; };
 		8831624716DCAFD5002CF260 /* ButtonToolShopPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831624516DCAFD5002CF260 /* ButtonToolShopPressed.png */; };
+		8831626216DDBA71002CF260 /* ToolShopScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8831626016DDBA70002CF260 /* ToolShopScreen.m */; };
+		8831626316DDBA71002CF260 /* ToolShopScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8831626116DDBA70002CF260 /* ToolShopScreen.xib */; };
+		8831626D16DDE5D0002CF260 /* CustomLabelFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 8831626C16DDE5D0002CF260 /* CustomLabelFont.m */; };
+		8831627016DDEC70002CF260 /* altair.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831626E16DDEC70002CF260 /* altair.png */; };
+		8831627116DDEC70002CF260 /* yaku.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831626F16DDEC70002CF260 /* yaku.png */; };
+		8831627316DDEDC4002CF260 /* ToolShop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8831627216DDEDC4002CF260 /* ToolShop.plist */; };
+		8831627616DE0412002CF260 /* HudCakeIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831627416DE0410002CF260 /* HudCakeIndicator.png */; };
+		8831627716DE0412002CF260 /* HudCoinIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831627516DE0411002CF260 /* HudCoinIndicator.png */; };
 		8851112E16CE3B4F00C74D07 /* UIBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8851110116CE3B4F00C74D07 /* UIBinding.m */; };
 		8851112F16CE3B4F00C74D07 /* UnityNativeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8851110316CE3B4F00C74D07 /* UnityNativeManager.mm */; };
 		8851117016D1DE4100C74D07 /* button_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851115316D1DE4100C74D07 /* button_castle.png */; };
@@ -204,6 +212,16 @@
 		8831624216DCAF2E002CF260 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		8831624416DCAFD5002CF260 /* ButtonToolShop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonToolShop.png; sourceTree = "<group>"; };
 		8831624516DCAFD5002CF260 /* ButtonToolShopPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonToolShopPressed.png; sourceTree = "<group>"; };
+		8831625F16DDBA70002CF260 /* ToolShopScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolShopScreen.h; sourceTree = "<group>"; };
+		8831626016DDBA70002CF260 /* ToolShopScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolShopScreen.m; sourceTree = "<group>"; };
+		8831626116DDBA70002CF260 /* ToolShopScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolShopScreen.xib; sourceTree = "<group>"; };
+		8831626B16DDE5D0002CF260 /* CustomLabelFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabelFont.h; sourceTree = "<group>"; };
+		8831626C16DDE5D0002CF260 /* CustomLabelFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabelFont.m; sourceTree = "<group>"; };
+		8831626E16DDEC70002CF260 /* altair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = altair.png; sourceTree = "<group>"; };
+		8831626F16DDEC70002CF260 /* yaku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yaku.png; sourceTree = "<group>"; };
+		8831627216DDEDC4002CF260 /* ToolShop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ToolShop.plist; path = NativeCode/Resources/ToolShop.plist; sourceTree = SOURCE_ROOT; };
+		8831627416DE0410002CF260 /* HudCakeIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HudCakeIndicator.png; sourceTree = "<group>"; };
+		8831627516DE0411002CF260 /* HudCoinIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HudCoinIndicator.png; sourceTree = "<group>"; };
 		8851110016CE3B4F00C74D07 /* UIBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBinding.h; sourceTree = "<group>"; };
 		8851110116CE3B4F00C74D07 /* UIBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBinding.m; sourceTree = "<group>"; };
 		8851110216CE3B4F00C74D07 /* UnityNativeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityNativeManager.h; sourceTree = "<group>"; };
@@ -459,6 +477,9 @@
 				8851119016D1DE4E00C74D07 /* TestViewController.h */,
 				8851119116D1DE4E00C74D07 /* TestViewController.mm */,
 				8851119216D1DE4E00C74D07 /* TestViewController.xib */,
+				8831625F16DDBA70002CF260 /* ToolShopScreen.h */,
+				8831626016DDBA70002CF260 /* ToolShopScreen.m */,
+				8831626116DDBA70002CF260 /* ToolShopScreen.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -466,6 +487,9 @@
 		8851113216CE3B7A00C74D07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8831627216DDEDC4002CF260 /* ToolShop.plist */,
+				8831626E16DDEC70002CF260 /* altair.png */,
+				8831626F16DDEC70002CF260 /* yaku.png */,
 				8831624416DCAFD5002CF260 /* ButtonToolShop.png */,
 				8831624516DCAFD5002CF260 /* ButtonToolShopPressed.png */,
 				8831623F16DCAE60002CF260 /* toolshop_scrollbar.png */,
@@ -509,6 +533,8 @@
 				8851116A16D1DE4100C74D07 /* logo copy.png */,
 				8851116C16D1DE4100C74D07 /* map copy.png */,
 				8851116E16D1DE4100C74D07 /* wood copy.png */,
+				8831627416DE0410002CF260 /* HudCakeIndicator.png */,
+				8831627516DE0411002CF260 /* HudCoinIndicator.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -538,6 +564,8 @@
 				F3ED26EB16DBB425001B7541 /* CustomLabel.m */,
 				8831624116DCAF2E002CF260 /* CustomCell.h */,
 				8831624216DCAF2E002CF260 /* CustomCell.m */,
+				8831626B16DDE5D0002CF260 /* CustomLabelFont.h */,
+				8831626C16DDE5D0002CF260 /* CustomLabelFont.m */,
 			);
 			path = UISubClass;
 			sourceTree = "<group>";
@@ -730,6 +758,12 @@
 				8831624016DCAE60002CF260 /* toolshop_scrollbar.png in Resources */,
 				8831624616DCAFD5002CF260 /* ButtonToolShop.png in Resources */,
 				8831624716DCAFD5002CF260 /* ButtonToolShopPressed.png in Resources */,
+				8831626316DDBA71002CF260 /* ToolShopScreen.xib in Resources */,
+				8831627016DDEC70002CF260 /* altair.png in Resources */,
+				8831627116DDEC70002CF260 /* yaku.png in Resources */,
+				8831627316DDEDC4002CF260 /* ToolShop.plist in Resources */,
+				8831627616DE0412002CF260 /* HudCakeIndicator.png in Resources */,
+				8831627716DE0412002CF260 /* HudCoinIndicator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +842,8 @@
 				88787CA916DB228400170A37 /* SaveFile.m in Sources */,
 				F3ED26EC16DBB425001B7541 /* CustomLabel.m in Sources */,
 				8831624316DCAF2E002CF260 /* CustomCell.m in Sources */,
+				8831626216DDBA71002CF260 /* ToolShopScreen.m in Sources */,
+				8831626D16DDE5D0002CF260 /* CustomLabelFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

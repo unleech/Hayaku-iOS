@@ -35,14 +35,15 @@ void UnityPause( bool pause );
 
 - (IBAction)onTouchTest
 {
-	[[UnityNativeManager sharedManager] hideViewControllerAndRestartUnity];
+//	[[UnityNativeManager sharedManager] hideViewControllerAndRestartUnity];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 - (IBAction)onTouchOther
 {
-	[[UnityNativeManager sharedManager] pauseUnity:NO];
-	UnitySendMessage( "UnityGameController", "loadLevelAdditiveAsync", [@"PartialScene" UTF8String] );
+//	[[UnityNativeManager sharedManager] pauseUnity:NO];
+//	UnitySendMessage( "UnityGameController", "loadLevelAdditiveAsync", [@"PartialScene" UTF8String] );
 }
 
 

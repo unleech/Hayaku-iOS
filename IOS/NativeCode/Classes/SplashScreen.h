@@ -24,7 +24,7 @@
 - (void)setCombo:(int) count;
 - (void)gotoMainMenu;
 
-static void saveAsBinary (id plist, NSString *filename);
-static id readFromFile (NSString *filename);
+- (void)saveData:(id)plist as:(NSString *)filename;
+- (id)loadData:(NSString *)filename;
 
 @end

@@ -16,7 +16,6 @@
 
 @implementation ToolShopScreen
 
-@synthesize listToolShop;
 @synthesize containerCostumes;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -89,14 +88,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return containerCostumes.count;
 }
@@ -233,30 +230,33 @@
 #pragma mark -
 - (void)onEquipButton:(UIButton *)sender
 {
-    NSMutableDictionary *listCostume = [containerCostumes objectAtIndex:sender.tag];
+    NSMutableDictionary *listCostume = [[containerCostumes objectAtIndex:sender.tag] mutableCopy];
     
+    BOOL success;
     if ([[listCostume objectForKey:@"purchased"] boolValue]) {
         if ([[listCostume objectForKey:@"equipped"] boolValue]) {
             //unequip
         }
         else {
             //equip
-            [self equip:listCostume];
+            success = [self equip:listCostume];
         }
         
     }
     else {
         //purchase
-        [self buy:listCostume];
+        success = [self buy:listCostume];
     }
     
-    //write to file
-    [self saveData:listCostume sender:sender];
-    //reloadShop
-    [self reloadShop];
+    if (success) {
+        //write to file
+        [self saveData:listCostume sender:sender];
+        //reloadShop
+        [self reloadShop];
+    }
 }
 
-- (void)equip:(NSMutableDictionary *)listCostume
+- (BOOL)equip:(NSMutableDictionary *)listCostume
 {
     for (NSMutableDictionary *temp in containerCostumes) {
         [temp setObject:@"NO" forKey:@"equipped"];
@@ -265,9 +265,10 @@
     [listCostume setObject:@"YES" forKey:@"equipped"];
     
     [[NSUserDefaults standardUserDefaults] setObject:@{@"selectedCharacter" : [listCostume objectForKey:@"image"]} forKey:@"listCharacters"];
+    return YES;
 }
 
-- (void)buy:(NSMutableDictionary *)listCostume
+- (BOOL)buy:(NSMutableDictionary *)listCostume
 {
     int totalMoney = 0;
     int totalSpent = 0;
@@ -280,23 +281,27 @@
         if (cost <= totalMoney - totalSpent) {
             [[NSUserDefaults standardUserDefaults] setInteger:totalSpent+cost forKey:@"spentCakes"];
             [listCostume setObject:@"YES" forKey:@"purchased"];
+            return YES;
         }
         else {
             //not enough
             NSLog(@"alert not enough cake");
+            return NO;
         }
     }
     else {
         totalMoney = [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"];
         totalSpent = [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCoins"];
 
-        if (cost <= totalMoney - totalSpent) {
+        if (YES) {
             [[NSUserDefaults standardUserDefaults] setInteger:totalSpent+cost forKey:@"spentCoins"];
             [listCostume setObject:@"YES" forKey:@"purchased"];
+            return YES;
         }
         else {
             //not enough
             NSLog(@"alert not enough coin");
+            return NO;
         }
     }
     
@@ -305,18 +310,31 @@
 
 - (void)saveData:(NSMutableDictionary *)listCostume sender:(UIButton *)sender
 {
-    NSMutableDictionary *tempMDict = [[NSMutableDictionary alloc] initWithDictionary:listToolShop];
-    NSMutableArray *tempArray = [tempMDict objectForKey:@"Costumes"];
+    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithArray:containerCostumes];
     [tempArray replaceObjectAtIndex:sender.tag withObject:listCostume];
     
+    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
+//                                                         NSUserDomainMask, YES);
+//    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+//    NSString *path = [documentsDirectoryPath
+//                      stringByAppendingPathComponent:@"ToolShop.plist"];
+//
+//    [tempMDict writeToFile:path atomically: YES];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [paths objectAtIndex:0];
     NSString *path = [documentsDirectoryPath
-                      stringByAppendingPathComponent:@"ToolShop.plist"];
+                      stringByAppendingPathComponent:@"TempCostumes.plist"];
+    
+    [tempArray writeToFile:path atomically:YES];
+    
+    [[SplashScreen sharedInstance] saveData:path as:@"Costumes.bin"];
+    NSString *path2 = [documentsDirectoryPath
+                      stringByAppendingPathComponent:@"TempCostumes.plist"];
 
-    [tempMDict writeToFile:path atomically: YES];
+    [[NSFileManager defaultManager] removeItemAtPath:path2 error:nil];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -326,22 +344,13 @@
     _labelCakes.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCakes"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCakes"]];
     _labelCoins.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCoins"]];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectoryPath
-                      stringByAppendingPathComponent:@"ToolShop.plist"];
-    
     if (_costumesButton.selected) {
-        listToolShop =  [[NSDictionary dictionaryWithContentsOfFile:path] retain];
-        containerCostumes = [listToolShop objectForKey:@"Costumes"];
+        containerCostumes = [[NSMutableArray alloc] initWithContentsOfFile:[[SplashScreen sharedInstance] loadData:@"Costumes.bin"]];
     }
     else {
-        listToolShop = nil;
         containerCostumes = nil;
     }
     
     [_tableView reloadData];
 }
-
 @end

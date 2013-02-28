@@ -74,6 +74,8 @@
 		8831627316DDEDC4002CF260 /* ToolShop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8831627216DDEDC4002CF260 /* ToolShop.plist */; };
 		8831627616DE0412002CF260 /* HudCakeIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831627416DE0410002CF260 /* HudCakeIndicator.png */; };
 		8831627716DE0412002CF260 /* HudCoinIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831627516DE0411002CF260 /* HudCoinIndicator.png */; };
+		883162B016DF6595002CF260 /* HelperSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 883162AF16DF6595002CF260 /* HelperSerialize.m */; };
+		883162B216DF6AEF002CF260 /* serial.m in Sources */ = {isa = PBXBuildFile; fileRef = 883162B116DF6AEE002CF260 /* serial.m */; };
 		8851112E16CE3B4F00C74D07 /* UIBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8851110116CE3B4F00C74D07 /* UIBinding.m */; };
 		8851112F16CE3B4F00C74D07 /* UnityNativeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8851110316CE3B4F00C74D07 /* UnityNativeManager.mm */; };
 		8851117016D1DE4100C74D07 /* button_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8851115316D1DE4100C74D07 /* button_castle.png */; };
@@ -222,6 +224,9 @@
 		8831627216DDEDC4002CF260 /* ToolShop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ToolShop.plist; path = NativeCode/Resources/ToolShop.plist; sourceTree = SOURCE_ROOT; };
 		8831627416DE0410002CF260 /* HudCakeIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HudCakeIndicator.png; sourceTree = "<group>"; };
 		8831627516DE0411002CF260 /* HudCoinIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HudCoinIndicator.png; sourceTree = "<group>"; };
+		883162AE16DF6595002CF260 /* HelperSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperSerialize.h; sourceTree = "<group>"; };
+		883162AF16DF6595002CF260 /* HelperSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperSerialize.m; sourceTree = "<group>"; };
+		883162B116DF6AEE002CF260 /* serial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serial.m; sourceTree = "<group>"; };
 		8851110016CE3B4F00C74D07 /* UIBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBinding.h; sourceTree = "<group>"; };
 		8851110116CE3B4F00C74D07 /* UIBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBinding.m; sourceTree = "<group>"; };
 		8851110216CE3B4F00C74D07 /* UnityNativeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityNativeManager.h; sourceTree = "<group>"; };
@@ -452,6 +457,9 @@
 			isa = PBXGroup;
 			children = (
 				885111E816D1E95800C74D07 /* Constants.h */,
+				883162B116DF6AEE002CF260 /* serial.m */,
+				883162AE16DF6595002CF260 /* HelperSerialize.h */,
+				883162AF16DF6595002CF260 /* HelperSerialize.m */,
 				885111CC16D1E4DE00C74D07 /* Flurry */,
 				885111CF16D1E4DE00C74D07 /* GoogleAnalytics */,
 				885111C816D1E48500C74D07 /* UISubClass */,
@@ -844,6 +852,8 @@
 				8831624316DCAF2E002CF260 /* CustomCell.m in Sources */,
 				8831626216DDBA71002CF260 /* ToolShopScreen.m in Sources */,
 				8831626D16DDE5D0002CF260 /* CustomLabelFont.m in Sources */,
+				883162B016DF6595002CF260 /* HelperSerialize.m in Sources */,
+				883162B216DF6AEF002CF260 /* serial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

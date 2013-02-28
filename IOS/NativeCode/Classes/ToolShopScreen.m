@@ -310,7 +310,7 @@
     [tempArray replaceObjectAtIndex:sender.tag withObject:listCostume];
     
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [paths objectAtIndex:0];
     NSString *path = [documentsDirectoryPath
@@ -326,7 +326,7 @@
     _labelCakes.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCakes"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCakes"]];
     _labelCoins.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCoins"]];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [paths objectAtIndex:0];
     NSString *path = [documentsDirectoryPath

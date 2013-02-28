@@ -1,3 +1,4 @@
+
 //
 //  SplashScreen.m
 //  Unity-iPhone
@@ -24,7 +25,7 @@
 
 #import "ToolShopScreen.h"
 
-#import "TestViewController.h" //fix rotation
+#import "TestViewController.h" //fix rotation for ios6
 
 @interface SplashScreen ()
 enum eScene
@@ -92,14 +93,19 @@ static SplashScreen* _splashScreen = nil;
 		
 		_splashScreen = [[self alloc] initWithNibName:nil bundle:nil];
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,
+        NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectoryPath = [paths objectAtIndex:0];
         NSString *filePath = [documentsDirectoryPath
                               stringByAppendingPathComponent:@"ToolShop.plist"];
         if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-            [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]] writeToFile:filePath atomically: YES];    
+            [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]] writeToFile:filePath atomically: YES];
         }
+
+//        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+//            saveAsBinary([NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]], @"ToolShop.bin");
+//        }
+        
 	}
 	
 	return _splashScreen;
@@ -124,7 +130,7 @@ static SplashScreen* _splashScreen = nil;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //rotation fix, so no manual rotation needed in unitynativemanager. :)
+    //rotation fix, so no manual rotation needed in unitynativemanager. :) works for ios6 only
     TestViewController *testFix = [[TestViewController alloc] init];
     [self presentModalViewController:testFix animated:NO];
     [testFix dismissModalViewControllerAnimated:NO];
@@ -579,16 +585,20 @@ static SplashScreen* _splashScreen = nil;
     _storyView.hidden = NO;
     _labelStory.hidden = NO;
 
+    _labelStory.text = @"Ninjas... (Heh) Who would have \nthought I\'d see another one\nagain in my lifetime? And most\ncertainly not in a story as odd\nas this one.\n\nCakes as currency seems so\nstupid now but back then no one\nreally thought about it, not\nexcept for little Yaku.\n\nIn a world where evil bakers ruled\nand oppression is widespread\nthroughout the land.\n\nA land where pastries are king and\ngold is scarce. A land where what\nyou pay with is also what you\neat and those that make it\nrule supreme.\n\nIt wasn\'t always like this...\n\nBut those days are but a distant\nmemory.\n\nA memory not lost to one...\n\nYaku.";
     
-    [UIView animateWithDuration:10
+    [UIView animateWithDuration:50
+                          delay:0
+                        options:(UIViewAnimationOptionCurveEaseOut)
                      animations:^{ //350 //-640
-                         _labelStory.frame = CGRectMake(_labelStory.frame.origin.x, _labelStory.frame.origin.y - 990, _labelStory.frame.size.width, _labelStory.frame.size.height);
+                         _labelStory.frame = CGRectMake(_labelStory.frame.origin.x, _labelStory.frame.origin.y - 790, _labelStory.frame.size.width, _labelStory.frame.size.height);
                      }
                      completion:^(BOOL completed) {
                          _storyView.hidden = YES;
                          _labelStory.hidden = YES;
-                         _labelStory.frame = CGRectMake(_labelStory.frame.origin.x, _labelStory.frame.origin.y + 990, _labelStory.frame.size.width, _labelStory.frame.size.height);
+                         _labelStory.frame = CGRectMake(_labelStory.frame.origin.x, _labelStory.frame.origin.y + 790, _labelStory.frame.size.width, _labelStory.frame.size.height);
                      }];
+    
 }
 
 - (IBAction)onCliffButton:(UIButton *)sender {
@@ -648,17 +658,21 @@ static SplashScreen* _splashScreen = nil;
 
 - (IBAction)onBack:(UIButton *)sender {
     
-    if (_objectiveView.hidden) {
-        _mapSceneView.hidden = YES;
-        _toolShopView.hidden = YES;
-        [self gotoMainMenu];
-    }
-    else {
+    if (!_objectiveView.hidden) {
         _objectiveView.hidden = YES;
         _mission1.hidden = YES;
         _mission2.hidden = YES;
         _mission3.hidden = YES;
         _mission4.hidden = YES;
+    }
+    else if (!_storyView.hidden) {
+        [_labelStory.layer removeAllAnimations];
+    }
+    else {
+        _mapSceneView.hidden = YES;
+        _toolShopView.hidden = YES;
+        [self gotoMainMenu];
+        
     }
 }
 
@@ -794,4 +808,90 @@ static SplashScreen* _splashScreen = nil;
     }
     
 }
+
+#pragma mark - ?
+static void saveAsBinary (id plist, NSString *filename) {
+    if (![NSPropertyListSerialization
+          propertyList: plist
+          isValidForFormat: kCFPropertyListBinaryFormat_v1_0]) {
+        NSLog (@"can't save as binary");
+        return;
+    }
+    
+    NSError *error;
+    NSData *data =
+    [NSPropertyListSerialization dataWithPropertyList: plist
+                                               format: kCFPropertyListBinaryFormat_v1_0
+                                              options: 0
+                                                error: &error];
+    if (data == nil) {
+        NSLog (@"error serializing to xml: %@", error);
+        return;
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath
+                          stringByAppendingPathComponent:filename];
+    
+    BOOL writeStatus = [data writeToFile: filePath
+                                 options: NSDataWritingAtomic
+                                   error: &error];
+    if (!writeStatus) {
+        NSLog (@"error writing to file: %@", error);
+        return;
+    }
+    
+} // saveAsBinary
+
+static id readFromFile (NSString *filename) {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath
+                          stringByAppendingPathComponent:filename];
+    
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfFile: filePath
+                                          options: 0
+                                            error: &error];
+    if (data == nil) {
+        NSLog (@"error reading %@: %@", filePath, error);
+        return nil;
+    }
+    
+    NSPropertyListFormat format;
+    id plist = [NSPropertyListSerialization propertyListWithData: data
+                                                         options: NSPropertyListImmutable
+                                                          format: &format
+                                                           error: &error];
+    
+    
+    
+    if (plist == nil) {
+        NSLog (@"could not deserialize %@: %@", filePath, error);
+    } else {
+        NSString *formatDescription;
+        switch (format) {
+            case NSPropertyListOpenStepFormat:
+                formatDescription = @"openstep";
+                break;
+            case NSPropertyListXMLFormat_v1_0:
+                formatDescription = @"xml";
+                break;
+            case NSPropertyListBinaryFormat_v1_0:
+                formatDescription = @"binary";
+                break;
+            default:
+                formatDescription = @"unknown";
+                break;
+        }
+        NSLog (@"%@ was in %@ format", filePath, formatDescription);
+    }
+    
+    return plist;
+    
+} // readFromFile
 @end

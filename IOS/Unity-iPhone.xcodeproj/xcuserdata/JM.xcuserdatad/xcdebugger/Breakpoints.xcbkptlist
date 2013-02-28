@@ -21,24 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NativeCode/Classes/SplashScreen.m"
-         timestampString = "383654236.958057"
+         timestampString = "383742411.90227"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
-         landmarkName = "-initWithNibName:bundle:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "NativeCode/Classes/SplashScreen.m"
-         timestampString = "383654236.958057"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "207"
-         endingLineNumber = "207"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -52,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "230"
          endingLineNumber = "230"
-         landmarkName = "-onEquipButton:"
+         landmarkName = "-onMoreButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,7 +52,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "246"
          endingLineNumber = "246"
-         landmarkName = "-equip:"
+         landmarkName = "-onEquipButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -78,7 +65,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "229"
          endingLineNumber = "229"
-         landmarkName = "-onEquipButton:"
+         landmarkName = "-onMoreButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

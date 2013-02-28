@@ -35,7 +35,7 @@ void _setCombo( int count)
         [[NSUserDefaults standardUserDefaults] setInteger:count forKey:@"highestCombo"];
     }
 
-    [[SplashScreen sharedInstance] setCombo:count];
+    [[SplashScreen sharedInstance] setCombo:count/2.5];
 }
 
 void _deactivateUI()
@@ -67,5 +67,8 @@ void _setStageCleared ( const char *stage)
     NSString *tempStage = [NSString stringWithUTF8String:stage];
 //    [[SaveFile sharedFile].listStages setObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"1", @"cleared", nil] forKey:tempStage];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@{tempStage : [[NSDictionary alloc] initWithObjectsAndKeys:@"1", @"cleared", nil]} forKey:@"listStages"];
+    NSMutableDictionary *testMDict = [[NSMutableDictionary alloc] initWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"listStages"]];
+    [testMDict setObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"1", @"cleared", nil] forKey:tempStage];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:testMDict forKey:@"listStages"];
 }

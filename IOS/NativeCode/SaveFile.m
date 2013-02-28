@@ -47,7 +47,7 @@ static SaveFile* saveFile = nil;
         self.spentCoins = 0;
         self.highestCombo = 0;
         
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 		NSString *documentDirectory = [paths objectAtIndex:0];
 		NSString *filePath = [documentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sav",RWappName]];
 		if(![[NSFileManager defaultManager] fileExistsAtPath:filePath]){
@@ -66,7 +66,7 @@ static SaveFile* saveFile = nil;
 +(void) loadData
 {
     @synchronized([SaveFile class]) {
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 		NSString *documentDirectory = [paths objectAtIndex:0];
 		NSString *filePath = [documentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sav",RWappName]];
         saveFile = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
@@ -77,7 +77,7 @@ static SaveFile* saveFile = nil;
 +(void) saveData
 {
 	[[NSUserDefaults standardUserDefaults] synchronize];
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *documentDirectory = [paths objectAtIndex:0];
 	NSString *filePath = [documentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sav",RWappName]];
 	[NSKeyedArchiver archiveRootObject:saveFile toFile:filePath];

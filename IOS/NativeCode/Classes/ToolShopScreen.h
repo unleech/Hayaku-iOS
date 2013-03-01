@@ -11,7 +11,8 @@
 @interface ToolShopScreen : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
-@property (retain, nonatomic)    NSMutableArray *containerCostumes;
+@property (retain, nonatomic)    NSDictionary *listToolShop;
+@property (retain, nonatomic)    NSArray *containerCostumes;
 
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;

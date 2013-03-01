@@ -130,9 +130,13 @@
                 _labelBuff.text = [tempDict objectForKey:@"buff"];
                 [_imageChar setImage:[UIImage imageNamed:[tempDict objectForKey:@"image"]]];
                 [cell.equipButton setTitle:@"Unequip" forState:UIControlStateNormal];
+
+                [cell.equipButton setEnabled:NO]; //remove this to change the text from equipped to unequip.
             }
             else {
                 [cell.equipButton setTitle:@"Equip" forState:UIControlStateNormal];
+                
+                [cell.equipButton setEnabled:YES];
             }
         }
         else {
@@ -289,6 +293,12 @@
         else {
             //not enough
             NSLog(@"alert not enough cake");
+            [[[UIAlertView alloc] initWithTitle:@"Buy"
+                                        message:@"Not enough Cakes!"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil]
+             show];
             return NO;
         }
     }
@@ -304,6 +314,12 @@
         else {
             //not enough
             NSLog(@"alert not enough coin");
+            [[[UIAlertView alloc] initWithTitle:@"Buy"
+                                        message:@"Not enough Coins!"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil]
+             show];
             return NO;
         }
     }

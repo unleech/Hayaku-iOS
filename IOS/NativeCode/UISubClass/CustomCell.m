@@ -55,9 +55,16 @@
         equipButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [equipButton setFrame:CGRectMake(220, 10, 75, 40)];
         [equipButton setTitle:@"BUY" forState:UIControlStateNormal];
-        [equipButton.titleLabel setFont:[UIFont fontWithName:@"Vanilla" size:14]];
+        [equipButton setTitle:@"Equipped" forState:UIControlStateDisabled];
+        [equipButton.titleLabel setFont:[UIFont fontWithName:@"Vanilla" size:12]];
         [equipButton setTitleColor:[UIColor colorWithRed:0.48f green:0.36f blue:0.23f alpha:1] forState:UIControlStateNormal];
+        [equipButton setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+        [equipButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [equipButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [equipButton setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
+        [equipButton setBackgroundImage:[UIImage imageNamed:@"buttonpressed.png"] forState:UIControlStateDisabled];
+        [equipButton setBackgroundImage:[UIImage imageNamed:@"buttonpressed.png"] forState:UIControlStateHighlighted];
+        [equipButton setBackgroundImage:[UIImage imageNamed:@"buttonpressed.png"] forState:UIControlStateSelected];
         [self addSubview:equipButton];
         
         

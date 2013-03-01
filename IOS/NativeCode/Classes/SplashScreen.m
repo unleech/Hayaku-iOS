@@ -96,15 +96,18 @@ static SplashScreen* _splashScreen = nil;
         NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-        NSString *filePath = [documentsDirectoryPath
-                              stringByAppendingPathComponent:@"ToolShop.plist"];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-            [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]] writeToFile:filePath atomically: YES];
-        }
-
+//        NSString *filePath = [documentsDirectoryPath
+//                              stringByAppendingPathComponent:@"ToolShop.plist"];
 //        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-//            saveAsBinary([NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]], @"ToolShop.bin");
+//            [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]] writeToFile:filePath atomically: YES];
 //        }
+
+        NSString *filePath = [documentsDirectoryPath
+                              stringByAppendingPathComponent:@"ToolShop.bin"];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            NSDictionary *tempDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ToolShop" ofType:@"plist"]];
+            saveAsBinary(tempDict, @"ToolShop.bin");
+        }
         
 	}
 	
@@ -810,6 +813,16 @@ static SplashScreen* _splashScreen = nil;
 }
 
 #pragma mark - ?
+- (void)saveData:(id)plist as:(NSString *)filename
+{
+    saveAsBinary(plist, filename);
+}
+
+- (id)loadData:(NSString *)filename
+{
+    return readFromFile(filename);
+}
+
 static void saveAsBinary (id plist, NSString *filename) {
     if (![NSPropertyListSerialization
           propertyList: plist
@@ -864,7 +877,7 @@ static id readFromFile (NSString *filename) {
     
     NSPropertyListFormat format;
     id plist = [NSPropertyListSerialization propertyListWithData: data
-                                                         options: NSPropertyListImmutable
+                                                         options: NSPropertyListMutableContainersAndLeaves
                                                           format: &format
                                                            error: &error];
     

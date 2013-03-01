@@ -306,17 +306,21 @@
 - (void)saveData:(NSMutableDictionary *)listCostume sender:(UIButton *)sender
 {
     NSMutableDictionary *tempMDict = [[NSMutableDictionary alloc] initWithDictionary:listToolShop];
-    NSMutableArray *tempArray = [tempMDict objectForKey:@"Costumes"];
+    NSMutableArray *tempArray = [[tempMDict objectForKey:@"Costumes"] mutableCopy];
     [tempArray replaceObjectAtIndex:sender.tag withObject:listCostume];
     
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectoryPath
-                      stringByAppendingPathComponent:@"ToolShop.plist"];
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
+//                                                         NSUserDomainMask, YES);
+//    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+//    NSString *path = [documentsDirectoryPath
+//                      stringByAppendingPathComponent:@"ToolShop.plist"];
+//
+//    [tempMDict writeToFile:path atomically: YES];
 
-    [tempMDict writeToFile:path atomically: YES];
+//    id plist = [NSPropertyListSerialization dataWithPropertyList:tempMDict format:0 options:NSPropertyListMutableContainersAndLeaves error:nil];
+    
+    [[SplashScreen sharedInstance] saveData:tempMDict as:@"ToolShop.bin"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -326,14 +330,15 @@
     _labelCakes.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCakes"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCakes"]];
     _labelCoins.text = [NSString stringWithFormat:@"x%d", [[NSUserDefaults standardUserDefaults] integerForKey:@"totalCoins"] - [[NSUserDefaults standardUserDefaults] integerForKey:@"spentCoins"]];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectoryPath
-                      stringByAppendingPathComponent:@"ToolShop.plist"];
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSCachesDirectory,
+//                                                         NSUserDomainMask, YES);
+//    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+//    NSString *path = [documentsDirectoryPath
+//                      stringByAppendingPathComponent:@"ToolShop.plist"];
     
     if (_costumesButton.selected) {
-        listToolShop =  [[NSDictionary dictionaryWithContentsOfFile:path] retain];
+//        listToolShop =  [[NSDictionary dictionaryWithContentsOfFile:path] retain];
+        listToolShop = [[[SplashScreen sharedInstance] loadData:@"ToolShop.bin"] retain];
         containerCostumes = [listToolShop objectForKey:@"Costumes"];
     }
     else {

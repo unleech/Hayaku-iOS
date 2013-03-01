@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NativeCode/Classes/SplashScreen.m"
-         timestampString = "383742411.90227"
+         timestampString = "383813995.925736"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "213"
-         endingLineNumber = "213"
+         startingLineNumber = "216"
+         endingLineNumber = "216"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>

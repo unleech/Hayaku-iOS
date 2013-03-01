@@ -234,6 +234,7 @@
 - (void)onEquipButton:(UIButton *)sender
 {
     NSMutableDictionary *listCostume = [containerCostumes objectAtIndex:sender.tag];
+    BOOL success;
     
     if ([[listCostume objectForKey:@"purchased"] boolValue]) {
         if ([[listCostume objectForKey:@"equipped"] boolValue]) {
@@ -241,22 +242,24 @@
         }
         else {
             //equip
-            [self equip:listCostume];
+            success = [self equip:listCostume];
         }
         
     }
     else {
         //purchase
-        [self buy:listCostume];
+        success = [self buy:listCostume];
     }
     
-    //write to file
-    [self saveData:listCostume sender:sender];
-    //reloadShop
-    [self reloadShop];
+    if (success) {
+        //write to file
+        [self saveData:listCostume sender:sender];
+        //reloadShop
+        [self reloadShop];
+    }
 }
 
-- (void)equip:(NSMutableDictionary *)listCostume
+- (BOOL)equip:(NSMutableDictionary *)listCostume
 {
     for (NSMutableDictionary *temp in containerCostumes) {
         [temp setObject:@"NO" forKey:@"equipped"];
@@ -265,9 +268,10 @@
     [listCostume setObject:@"YES" forKey:@"equipped"];
     
     [[NSUserDefaults standardUserDefaults] setObject:@{@"selectedCharacter" : [listCostume objectForKey:@"image"]} forKey:@"listCharacters"];
+    return YES;
 }
 
-- (void)buy:(NSMutableDictionary *)listCostume
+- (BOOL)buy:(NSMutableDictionary *)listCostume
 {
     int totalMoney = 0;
     int totalSpent = 0;
@@ -280,10 +284,12 @@
         if (cost <= totalMoney - totalSpent) {
             [[NSUserDefaults standardUserDefaults] setInteger:totalSpent+cost forKey:@"spentCakes"];
             [listCostume setObject:@"YES" forKey:@"purchased"];
+            return YES;
         }
         else {
             //not enough
             NSLog(@"alert not enough cake");
+            return NO;
         }
     }
     else {
@@ -293,10 +299,12 @@
         if (cost <= totalMoney - totalSpent) {
             [[NSUserDefaults standardUserDefaults] setInteger:totalSpent+cost forKey:@"spentCoins"];
             [listCostume setObject:@"YES" forKey:@"purchased"];
+            return YES;
         }
         else {
             //not enough
             NSLog(@"alert not enough coin");
+            return NO;
         }
     }
     

@@ -1,4 +1,3 @@
-#warning save/unlock character, scrolling text
 
 #define RWappName               @"Hayaku"
 

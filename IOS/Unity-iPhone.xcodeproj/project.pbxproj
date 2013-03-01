@@ -154,6 +154,7 @@
 		D8A1C700bE80637F000160D4 /* Default-568h@2x.png in Sources */ = {isa = PBXBuildFile; fileRef = D8A1C700bE80637F100160D4 /* Default-568h@2x.png */; };
 		D8A1C7280E80637F000160D3 /* RegisterMonoModules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8A1C7240E80637F000160D3 /* RegisterMonoModules.cpp */; };
 		D8A1C72B0E8063A1000160D3 /* libiPhone-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1C72A0E8063A1000160D3 /* libiPhone-lib.a */; };
+		F39E15AA16DFB9CC001052DA /* Costumes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39E15A916DFB9CC001052DA /* Costumes.plist */; };
 		F3ED26EC16DBB425001B7541 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ED26EB16DBB425001B7541 /* CustomLabel.m */; };
 /* End PBXBuildFile section */
 
@@ -328,6 +329,7 @@
 		D8A1C7240E80637F000160D3 /* RegisterMonoModules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RegisterMonoModules.cpp; path = Libraries/RegisterMonoModules.cpp; sourceTree = SOURCE_ROOT; };
 		D8A1C7250E80637F000160D3 /* RegisterMonoModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterMonoModules.h; path = Libraries/RegisterMonoModules.h; sourceTree = SOURCE_ROOT; };
 		D8A1C72A0E8063A1000160D3 /* libiPhone-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libiPhone-lib.a"; path = "Libraries/libiPhone-lib.a"; sourceTree = SOURCE_ROOT; };
+		F39E15A916DFB9CC001052DA /* Costumes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Costumes.plist; path = Resources/Costumes.plist; sourceTree = "<group>"; };
 		F3ED26EA16DBB425001B7541 /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
 		F3ED26EB16DBB425001B7541 /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -496,6 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				8831627216DDEDC4002CF260 /* ToolShop.plist */,
+				F39E15A916DFB9CC001052DA /* Costumes.plist */,
 				8831626E16DDEC70002CF260 /* Altair */,
 				8831626F16DDEC70002CF260 /* Yaku */,
 				8831624416DCAFD5002CF260 /* ButtonToolShop.png */,
@@ -772,6 +775,7 @@
 				8831627316DDEDC4002CF260 /* ToolShop.plist in Resources */,
 				8831627616DE0412002CF260 /* HudCakeIndicator.png in Resources */,
 				8831627716DE0412002CF260 /* HudCoinIndicator.png in Resources */,
+				F39E15AA16DFB9CC001052DA /* Costumes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

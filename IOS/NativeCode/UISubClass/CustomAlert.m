@@ -129,7 +129,4 @@ static UIColor *borderColor = nil;
     CGContextClosePath(context);
 }
 
-- (void)dealloc
-{
-}
 @end

@@ -1,4 +1,4 @@
-
+//REMOVE THIS LINE <<
 #define RWappName               @"Hayaku"
 
 #if DEBUG
